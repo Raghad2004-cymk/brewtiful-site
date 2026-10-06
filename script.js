@@ -15,7 +15,7 @@ document.getElementById('products').innerHTML = PRODUCTS.map((x, n) => {
   const out = x.s === 0;
   const badge = out ? '<span class="badge out">SOLD OUT</span>' : x.tag ? `<span class="badge">${esc(x.tag)}</span>` : (x.s <= 5 ? '<span class="badge">LOW STOCK</span>' : '');
   return `<article class="card reveal" style="--d:${(n % 4) * .08}s">${badge}
-    <div class="img"><img src="${IMG}${x.i}&width=600" alt="${esc(x.t)}" loading="lazy"></div>
+    <div class="img"><img src="${IMG}${x.i}&width=600" alt="${esc(x.t)}" loading="lazy" onerror="this.remove()"></div>
     <div class="body"><h3>${esc(x.t)}</h3><p>5 pouches of ground coffee + 5 paper cups</p>
     <span class="price">${x.p} QAR</span>
     <a class="btn${out ? ' soldout' : ''}" href="${STORE}/products/${x.h}" target="_blank" rel="noopener">${out ? 'Sold out' : 'Buy now'}</a></div></article>`;

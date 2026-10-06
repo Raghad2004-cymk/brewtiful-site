@@ -35,7 +35,7 @@ nav a:not(.btn):hover::after{transform:scaleX(1);transform-origin:left}
 .b2{width:360px;height:360px;background:#e6b8a2;bottom:-100px;left:-80px;animation-delay:-6s}
 @keyframes drift{to{transform:translate(40px,30px) scale(1.15)}}
 .eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:.8rem;font-weight:700;color:var(--accent)}
-h1{font-size:clamp(2.6rem,6.4vw,5rem);margin:.2em 0;font-weight:700}
+h1{font-size:clamp(2.4rem,5.2vw,4.3rem);margin:.2em 0;font-weight:700}
 h1 em{color:var(--accent);font-style:italic}
 .line{display:block;overflow:hidden;padding-bottom:.08em}
 .line>span{display:inline-block;transform:translateY(110%);animation:rise 1s var(--ease) forwards}
@@ -51,7 +51,7 @@ h1 em{color:var(--accent);font-style:italic}
 .cup{position:relative;width:240px;animation:float 5s ease-in-out infinite}
 @keyframes float{50%{transform:translateY(-14px)}}
 .mug{position:relative;width:200px;height:170px;background:var(--ink);border-radius:10px 10px 90px 90px;margin:0 auto;overflow:hidden}
-.mug::after{content:"";position:absolute;right:-52px;top:28px;width:60px;height:70px;border:14px solid var(--ink);border-left:0;border-radius:0 50px 50px 0}
+.cup::after{content:"";position:absolute;right:-6px;top:30px;width:56px;height:70px;border:14px solid var(--ink);border-left:0;border-radius:0 50px 50px 0}
 .coffee{position:absolute;inset:0;background:linear-gradient(#8f4a1d,#5a2d10);animation:slosh 3s ease-in-out infinite alternate;transform-origin:center bottom}
 .coffee::before{content:"";position:absolute;left:0;right:0;top:0;height:18px;background:#c98a52;border-radius:0 0 50% 50%/0 0 100% 100%}
 @keyframes slosh{from{transform:scaleY(.86)}to{transform:scaleY(.92)}}
@@ -80,7 +80,7 @@ h1 em{color:var(--accent);font-style:italic}
 .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:24px}
 .card{position:relative;display:flex;flex-direction:column;background:var(--card);border-radius:20px;overflow:hidden;box-shadow:0 4px 18px rgba(43,29,20,.07);transition:transform .35s var(--ease),box-shadow .35s;transform-style:preserve-3d;will-change:transform}
 .card:hover{box-shadow:0 22px 44px rgba(43,29,20,.16)}
-.card .img{aspect-ratio:1;background:var(--alt);overflow:hidden}
+.card .img{aspect-ratio:1;background:var(--alt) radial-gradient(circle at 50% 45%,#d9b48a 0 28%,transparent 29%);overflow:hidden}
 .card img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
 .card:hover img{transform:scale(1.08)}
 .card .body{padding:20px;display:flex;flex-direction:column;gap:6px;flex:1}
