@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact — Brewtiful</title>
+<meta name="description" content="Questions, gifting or wholesale? Get in touch with the Brewtiful team.">
+<meta property="og:title" content="Contact — Brewtiful">
+<meta property="og:description" content="Questions, gifting or wholesale? Get in touch with the Brewtiful team.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#b5622b">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E☕%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"></div>
+<header class="nav">
+  <a class="logo" href="index.html">Brew<span>tiful</span></a>
+  <button class="menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="menu"><i></i><i></i></button>
+  <nav id="menu">
+    <a href="shop.html">Shop</a>
+    <a href="about.html">Our story</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html" aria-current="page">Contact</a>
+    <a class="btn small" href="https://brewtiful.club" target="_blank" rel="noopener">Visit store</a>
+  </nav>
+</header>
+<main id="main">
+  <section class="section page-hero">
+    <p class="eyebrow">Contact</p>
+    <h1>Say hello</h1>
+    <p class="lead">Questions, gifting or wholesale? We'd love to hear from you.</p>
+  </section>
+  <section class="section tight">
+    <div class="split contact">
+      <form id="contact-form" class="form" novalidate>
+        <label>Your name<input name="name" required autocomplete="name"></label>
+        <label>Email<input name="email" type="email" required autocomplete="email"></label>
+        <label>Topic
+          <select name="topic"><option>General question</option><option>Gifting</option><option>Wholesale</option><option>Order help</option></select>
+        </label>
+        <label>Message<textarea name="msg" rows="5" required></textarea></label>
+        <button class="btn" type="submit">Send message</button>
+        <p class="note" id="form-note" role="status">This opens your email app with the message ready to send.</p>
+      </form>
+      <div class="info">
+        <ul class="stats">
+          <li><strong>Email</strong><a class="ul" href="mailto:brewtiful.qa@gmail.com">brewtiful.qa@gmail.com</a></li>
+          <li><strong>Store</strong><a class="ul" href="https://brewtiful.club" target="_blank" rel="noopener">brewtiful.club</a></li>
+          <li><strong>Based in</strong>Qatar</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="site-foot">
+  <div class="foot-grid">
+    <div><a class="logo" href="index.html">Brew<span>tiful</span></a><p>Specialty decaf coffee, made for Qatar. All the flavor, none of the jitters.</p></div>
+    <div><h4>Explore</h4><a href="shop.html">Shop</a><a href="about.html">Our story</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a></div>
+    <div><h4>Get in touch</h4><a href="mailto:brewtiful.qa@gmail.com">brewtiful.qa@gmail.com</a><a href="https://brewtiful.club" target="_blank" rel="noopener">brewtiful.club</a></div>
+  </div>
+  <p class="copy">© <span id="year">2026</span> Brewtiful · Qatar</p>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>

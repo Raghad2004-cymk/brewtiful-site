@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shop decaf coffee — Brewtiful</title>
+<meta name="description" content="Browse the Brewtiful decaf collection: single-origin and blended roasts, 5 pouches and 5 paper cups per box.">
+<meta property="og:title" content="Shop decaf coffee — Brewtiful">
+<meta property="og:description" content="Browse the Brewtiful decaf collection: single-origin and blended roasts, 5 pouches and 5 paper cups per box.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#b5622b">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E☕%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"></div>
+<header class="nav">
+  <a class="logo" href="index.html">Brew<span>tiful</span></a>
+  <button class="menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="menu"><i></i><i></i></button>
+  <nav id="menu">
+    <a href="shop.html" aria-current="page">Shop</a>
+    <a href="about.html">Our story</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+    <a class="btn small" href="https://brewtiful.club" target="_blank" rel="noopener">Visit store</a>
+  </nav>
+</header>
+<main id="main">
+  <section class="section page-hero">
+    <p class="eyebrow">The collection</p>
+    <h1>Decaf, in every roast</h1>
+    <p class="lead">Each box has 5 pouches of ground coffee and 5 paper cups. Prices in QAR. Checkout happens securely on our store.</p>
+  </section>
+  <section class="section tight">
+    <div class="toolbar">
+      <div class="chips" role="group" aria-label="Filter">
+        <button class="chip on" data-filter="all">All</button>
+        <button class="chip" data-filter="in">In stock</button>
+      </div>
+      <label class="sort">Sort by
+        <select id="sort">
+          <option value="default">Featured</option>
+          <option value="low">Price: low to high</option>
+          <option value="high">Price: high to low</option>
+          <option value="az">Name A–Z</option>
+        </select>
+      </label>
+    </div>
+    <div class="cards" id="products"></div>
+    <p class="sub center-text">Not sure where to start? <a class="ul" href="contact.html">Ask us</a> and we'll help you pick.</p>
+  </section>
+</main>
+<footer class="site-foot">
+  <div class="foot-grid">
+    <div><a class="logo" href="index.html">Brew<span>tiful</span></a><p>Specialty decaf coffee, made for Qatar. All the flavor, none of the jitters.</p></div>
+    <div><h4>Explore</h4><a href="shop.html">Shop</a><a href="about.html">Our story</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a></div>
+    <div><h4>Get in touch</h4><a href="mailto:brewtiful.qa@gmail.com">brewtiful.qa@gmail.com</a><a href="https://brewtiful.club" target="_blank" rel="noopener">brewtiful.club</a></div>
+  </div>
+  <p class="copy">© <span id="year">2026</span> Brewtiful · Qatar</p>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>

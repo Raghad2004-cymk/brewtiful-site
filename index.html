@@ -5,25 +5,31 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Brewtiful — Decaf coffee, beautifully brewed</title>
 <meta name="description" content="Brewtiful: specialty decaf coffee in Qatar. All the flavor, none of the jitters.">
+<meta property="og:title" content="Brewtiful — Decaf coffee, beautifully brewed">
+<meta property="og:description" content="Brewtiful: specialty decaf coffee in Qatar. All the flavor, none of the jitters.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#b5622b">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E☕%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 <div class="progress" aria-hidden="true"></div>
 <header class="nav">
-  <a class="logo" href="#top">Brew<span>tiful</span></a>
-  <button class="menu-btn" aria-label="Toggle menu" aria-expanded="false"><i></i><i></i></button>
+  <a class="logo" href="index.html">Brew<span>tiful</span></a>
+  <button class="menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="menu"><i></i><i></i></button>
   <nav id="menu">
-    <a href="#shop">Shop</a>
-    <a href="#why">Why decaf</a>
-    <a href="#how">How it works</a>
+    <a href="shop.html">Shop</a>
+    <a href="about.html">Our story</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
     <a class="btn small" href="https://brewtiful.club" target="_blank" rel="noopener">Visit store</a>
   </nav>
 </header>
-
-<main id="top">
+<main id="main">
   <section class="hero">
     <div class="blob b1"></div><div class="blob b2"></div>
     <div class="hero-text">
@@ -34,7 +40,7 @@
       </h1>
       <p class="lead reveal" style="--d:.5s">Specialty decaf, gently decaffeinated and carefully roasted, so you can enjoy a great cup any time of day. Even at midnight.</p>
       <div class="cta reveal" style="--d:.65s">
-        <a class="btn magnetic" href="#shop">Shop the coffee</a>
+        <a class="btn magnetic" href="shop.html">Shop the coffee</a>
         <a class="btn ghost" href="#how">How it works</a>
       </div>
     </div>
@@ -56,9 +62,10 @@
   </div>
 
   <section id="shop" class="section">
-    <h2 class="reveal">The collection</h2>
+    <h2 class="reveal">Fan favourites</h2>
     <p class="sub reveal">Each box has 5 pouches of ground coffee and 5 paper cups. Brew anywhere.</p>
-    <div class="cards" id="products"></div>
+    <div class="cards" id="products" data-limit="4"></div>
+    <p class="center-link reveal"><a class="btn ghost" href="shop.html">See the full collection</a></p>
   </section>
 
   <section id="why" class="section alt">
@@ -67,6 +74,7 @@
         <h2 class="reveal">Decaf that doesn't taste like decaf</h2>
         <p class="reveal">Giving up caffeine shouldn't mean giving up great coffee. We start with exceptional beans and roast in small batches to keep the flavor in.</p>
         <p class="reveal">Enjoy a cup after dinner, during pregnancy, or whenever you want the ritual without the buzz.</p>
+        <p class="reveal"><a class="btn ghost" href="about.html">Read our story</a></p>
       </div>
       <ul class="stats">
         <li class="reveal"><strong data-count="7">0</strong> single-origin &amp; blended roasts</li>
@@ -85,14 +93,36 @@
     </ol>
   </section>
 
-  <section id="contact" class="section alt center">
-    <h2 class="reveal">Say hello</h2>
-    <p class="reveal">Questions, gifting or wholesale? We'd love to hear from you.</p>
-    <a class="btn magnetic reveal" href="mailto:brewtiful.qa@gmail.com">brewtiful.qa@gmail.com</a>
+  <section class="section alt">
+    <h2 class="reveal">Perfect for every moment</h2>
+    <div class="moments">
+      <div class="reveal"><span>🌙</span><h3>After dinner</h3><p>A proper coffee ending to the evening, with a good night's sleep to follow.</p></div>
+      <div class="reveal" style="--d:.1s"><span>🤰</span><h3>Mums-to-be</h3><p>Keep the ritual you love while keeping caffeine low.</p></div>
+      <div class="reveal" style="--d:.2s"><span>🎁</span><h3>Gifting</h3><p>A box of pouches and cups is an easy, thoughtful present.</p></div>
+      <div class="reveal" style="--d:.3s"><span>🧳</span><h3>On the go</h3><p>No machine, no grinder. Just pouch, cup and hot water.</p></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="reveal">Quick answers</h2>
+    <div class="faq reveal" id="faq-home"></div>
+    <p class="center-link reveal"><a class="btn ghost" href="faq.html">All questions</a></p>
+  </section>
+
+  <section class="section cta-band center">
+    <h2 class="reveal">Ready for a better cup?</h2>
+    <p class="reveal">Pick your roast and have it delivered.</p>
+    <a class="btn magnetic reveal" href="shop.html">Shop now</a>
   </section>
 </main>
-
-<footer>© <span id="year"></span> Brewtiful · Qatar · <a href="https://brewtiful.club" target="_blank" rel="noopener">brewtiful.club</a></footer>
+<footer class="site-foot">
+  <div class="foot-grid">
+    <div><a class="logo" href="index.html">Brew<span>tiful</span></a><p>Specialty decaf coffee, made for Qatar. All the flavor, none of the jitters.</p></div>
+    <div><h4>Explore</h4><a href="shop.html">Shop</a><a href="about.html">Our story</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a></div>
+    <div><h4>Get in touch</h4><a href="mailto:brewtiful.qa@gmail.com">brewtiful.qa@gmail.com</a><a href="https://brewtiful.club" target="_blank" rel="noopener">brewtiful.club</a></div>
+  </div>
+  <p class="copy">© <span id="year">2026</span> Brewtiful · Qatar</p>
+</footer>
 <script src="script.js"></script>
 </body>
 </html>
