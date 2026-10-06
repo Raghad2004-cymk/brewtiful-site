@@ -3,84 +3,96 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Brewtiful — Decaf coffee that doesn't compromise</title>
-<meta name="description" content="Brewtiful: premium decaf coffee. All the flavor, none of the jitters.">
+<title>Brewtiful — Decaf coffee, beautifully brewed</title>
+<meta name="description" content="Brewtiful: specialty decaf coffee in Qatar. All the flavor, none of the jitters.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<div class="progress" aria-hidden="true"></div>
 <header class="nav">
   <a class="logo" href="#top">Brew<span>tiful</span></a>
-  <button class="menu-btn" aria-label="Toggle menu" aria-expanded="false">☰</button>
+  <button class="menu-btn" aria-label="Toggle menu" aria-expanded="false"><i></i><i></i></button>
   <nav id="menu">
-    <a href="#menu-section">Menu</a>
-    <a href="#story">Our story</a>
-    <a href="#visit">Visit</a>
-    <a class="btn small" href="#contact">Get in touch</a>
+    <a href="#shop">Shop</a>
+    <a href="#why">Why decaf</a>
+    <a href="#how">How it works</a>
+    <a class="btn small" href="https://brewtiful.club" target="_blank" rel="noopener">Visit store</a>
   </nav>
 </header>
 
 <main id="top">
   <section class="hero">
+    <div class="blob b1"></div><div class="blob b2"></div>
     <div class="hero-text">
-      <p class="eyebrow">100% Decaf · Small-batch · Roasted weekly</p>
-      <h1>All the flavor.<br>None of the jitters.</h1>
-      <p class="lead">Brewtiful is decaf done right: gently decaffeinated, carefully roasted, and brewed so you can enjoy great coffee any time of day, even at night.</p>
-      <div class="cta">
-        <a class="btn" href="#menu-section">See the menu</a>
-        <a class="btn ghost" href="#visit">Find us</a>
+      <p class="eyebrow reveal">100% Decaf · Made for Qatar</p>
+      <h1 class="split-lines">
+        <span class="line"><span>All the flavor.</span></span>
+        <span class="line"><span><em>None</em> of the jitters.</span></span>
+      </h1>
+      <p class="lead reveal" style="--d:.5s">Specialty decaf, gently decaffeinated and carefully roasted, so you can enjoy a great cup any time of day. Even at midnight.</p>
+      <div class="cta reveal" style="--d:.65s">
+        <a class="btn magnetic" href="#shop">Shop the coffee</a>
+        <a class="btn ghost" href="#how">How it works</a>
       </div>
     </div>
-    <div class="hero-art" aria-hidden="true">☕</div>
-  </section>
-
-  <section id="menu-section" class="section">
-    <h2>The menu</h2>
-    <div class="cards">
-      <article class="card"><h3>Decaf Espresso</h3><p>Rich, syrupy, caramel finish.</p><span class="price">$3.00</span></article>
-      <article class="card"><h3>Decaf Flat White</h3><p>Velvety microfoam over a double decaf shot.</p><span class="price">$4.50</span></article>
-      <article class="card"><h3>Decaf Pour Over</h3><p>Single-origin decaf, brewed to order.</p><span class="price">$5.00</span></article>
-      <article class="card"><h3>Decaf Cold Brew</h3><p>Steeped 18 hours, smooth and bright.</p><span class="price">$4.75</span></article>
-      <article class="card"><h3>Midnight Mocha</h3><p>Decaf espresso, dark chocolate, steamed milk.</p><span class="price">$5.25</span></article>
-      <article class="card"><h3>Beans to Take Home</h3><p>Our decaf roasts, ground your way. 12 oz bags.</p><span class="price">$16.00</span></article>
+    <div class="hero-art" aria-hidden="true">
+      <div class="cup">
+        <span class="steam s1"></span><span class="steam s2"></span><span class="steam s3"></span>
+        <div class="mug"><div class="coffee"></div></div>
+        <div class="saucer"></div>
+      </div>
+      <span class="bean bn1">●</span><span class="bean bn2">●</span><span class="bean bn3">●</span>
     </div>
   </section>
 
-  <section id="story" class="section alt">
+  <div class="marquee" aria-hidden="true">
+    <div class="track">
+      <span>Decaf</span><span>✦</span><span>Specialty grade</span><span>✦</span><span>Small batch</span><span>✦</span><span>Zero jitters</span><span>✦</span>
+      <span>Decaf</span><span>✦</span><span>Specialty grade</span><span>✦</span><span>Small batch</span><span>✦</span><span>Zero jitters</span><span>✦</span>
+    </div>
+  </div>
+
+  <section id="shop" class="section">
+    <h2 class="reveal">The collection</h2>
+    <p class="sub reveal">Each box has 5 pouches of ground coffee and 5 paper cups. Brew anywhere.</p>
+    <div class="cards" id="products"></div>
+  </section>
+
+  <section id="why" class="section alt">
     <div class="split">
       <div>
-        <h2>Our story</h2>
-        <p>Brewtiful began with a simple idea: giving up caffeine shouldn't mean giving up great coffee. Too much decaf tastes flat, so we start with exceptional beans, use a gentle water-based decaffeination process, and roast in small batches to keep the flavor in.</p>
-        <p>Enjoy a cup after dinner, during pregnancy, or whenever you want the ritual without the buzz.</p>
+        <h2 class="reveal">Decaf that doesn't taste like decaf</h2>
+        <p class="reveal">Giving up caffeine shouldn't mean giving up great coffee. We start with exceptional beans and roast in small batches to keep the flavor in.</p>
+        <p class="reveal">Enjoy a cup after dinner, during pregnancy, or whenever you want the ritual without the buzz.</p>
       </div>
       <ul class="stats">
-        <li><strong>99.9%</strong> caffeine-free, chemical-free process</li>
-        <li><strong>100%</strong> specialty-grade beans</li>
-        <li><strong>7 days</strong> max bean age</li>
+        <li class="reveal"><strong data-count="7">0</strong> single-origin &amp; blended roasts</li>
+        <li class="reveal"><strong data-count="100" data-suffix="%">0</strong> decaf, always</li>
+        <li class="reveal"><strong data-count="5">0</strong> pouches in every box</li>
       </ul>
     </div>
   </section>
 
-  <section id="visit" class="section">
-    <h2>Visit us</h2>
-    <div class="cards two">
-      <div class="card"><h3>Hours</h3><p>Mon–Fri 7am – 6pm<br>Sat–Sun 8am – 5pm</p></div>
-      <div class="card"><h3>Location</h3><p>123 Roast Street<br>Your City</p></div>
-    </div>
+  <section id="how" class="section">
+    <h2 class="reveal">Brew in three steps</h2>
+    <ol class="steps">
+      <li class="reveal"><span>1</span><h3>Tear</h3><p>Open a pouch of ground coffee.</p></li>
+      <li class="reveal" style="--d:.12s"><span>2</span><h3>Pour</h3><p>Add hot water to your cup.</p></li>
+      <li class="reveal" style="--d:.24s"><span>3</span><h3>Sip</h3><p>Enjoy. No caffeine, no crash.</p></li>
+    </ol>
   </section>
 
-  <section id="contact" class="section alt">
-    <h2>Say hello</h2>
-    <form id="contact-form" class="form">
-      <input name="name" placeholder="Your name" required>
-      <input name="email" type="email" placeholder="Email" required>
-      <textarea name="message" rows="4" placeholder="Message" required></textarea>
-      <button class="btn" type="submit">Send</button>
-      <p id="form-note" role="status"></p>
-    </form>
+  <section id="contact" class="section alt center">
+    <h2 class="reveal">Say hello</h2>
+    <p class="reveal">Questions, gifting or wholesale? We'd love to hear from you.</p>
+    <a class="btn magnetic reveal" href="mailto:brewtiful.qa@gmail.com">brewtiful.qa@gmail.com</a>
   </section>
 </main>
 
-<footer>© <span id="year"></span> Brewtiful. Brewed with love.</footer>
+<footer>© <span id="year"></span> Brewtiful · Qatar · <a href="https://brewtiful.club" target="_blank" rel="noopener">brewtiful.club</a></footer>
 <script src="script.js"></script>
 </body>
 </html>
