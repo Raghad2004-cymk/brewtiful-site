@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brewtiful — Coffee worth slowing down for</title>
+<meta name="description" content="Brewtiful: small-batch roasted coffee, brewed beautifully.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="nav">
+  <a class="logo" href="#top">Brew<span>tiful</span></a>
+  <button class="menu-btn" aria-label="Toggle menu" aria-expanded="false">☰</button>
+  <nav id="menu">
+    <a href="#menu-section">Menu</a>
+    <a href="#story">Our story</a>
+    <a href="#visit">Visit</a>
+    <a class="btn small" href="#contact">Get in touch</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="hero-text">
+      <p class="eyebrow">Small-batch · Ethically sourced · Roasted weekly</p>
+      <h1>Coffee worth<br>slowing down for.</h1>
+      <p class="lead">Every cup at Brewtiful is roasted with care and brewed to bring out the best in the bean.</p>
+      <div class="cta">
+        <a class="btn" href="#menu-section">See the menu</a>
+        <a class="btn ghost" href="#visit">Find us</a>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">☕</div>
+  </section>
+
+  <section id="menu-section" class="section">
+    <h2>The menu</h2>
+    <div class="cards">
+      <article class="card"><h3>Espresso</h3><p>Rich, syrupy, caramel finish.</p><span class="price">$3.00</span></article>
+      <article class="card"><h3>Flat White</h3><p>Velvety microfoam over a double shot.</p><span class="price">$4.50</span></article>
+      <article class="card"><h3>Pour Over</h3><p>Single-origin, brewed to order.</p><span class="price">$5.00</span></article>
+      <article class="card"><h3>Cold Brew</h3><p>Steeped 18 hours, smooth and bright.</p><span class="price">$4.75</span></article>
+      <article class="card"><h3>Matcha Latte</h3><p>Ceremonial grade, lightly sweet.</p><span class="price">$5.25</span></article>
+      <article class="card"><h3>Fresh Pastries</h3><p>Baked each morning.</p><span class="price">from $3.50</span></article>
+    </div>
+  </section>
+
+  <section id="story" class="section alt">
+    <div class="split">
+      <div>
+        <h2>Our story</h2>
+        <p>Brewtiful began with a simple idea: a good cup of coffee should feel like a small celebration. We work directly with growers, roast in small batches, and brew every cup with attention.</p>
+        <p>Whether you're grabbing one on the go or settling in for the afternoon, we hope it makes your day a little more beautiful.</p>
+      </div>
+      <ul class="stats">
+        <li><strong>12</strong> partner farms</li>
+        <li><strong>100%</strong> traceable beans</li>
+        <li><strong>7 days</strong> max bean age</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="visit" class="section">
+    <h2>Visit us</h2>
+    <div class="cards two">
+      <div class="card"><h3>Hours</h3><p>Mon–Fri 7am – 6pm<br>Sat–Sun 8am – 5pm</p></div>
+      <div class="card"><h3>Location</h3><p>123 Roast Street<br>Your City</p></div>
+    </div>
+  </section>
+
+  <section id="contact" class="section alt">
+    <h2>Say hello</h2>
+    <form id="contact-form" class="form">
+      <input name="name" placeholder="Your name" required>
+      <input name="email" type="email" placeholder="Email" required>
+      <textarea name="message" rows="4" placeholder="Message" required></textarea>
+      <button class="btn" type="submit">Send</button>
+      <p id="form-note" role="status"></p>
+    </form>
+  </section>
+</main>
+
+<footer>© <span id="year"></span> Brewtiful. Brewed with love.</footer>
+<script src="script.js"></script>
+</body>
+</html>
