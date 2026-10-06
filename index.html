@@ -8,127 +8,91 @@
 <meta property="og:title" content="Brewtiful — Decaf coffee, beautifully brewed">
 <meta property="og:description" content="Brewtiful: specialty decaf coffee in Qatar. All the flavor, none of the jitters.">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#b5622b">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E☕%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#17352b">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='28' fill='%2317352b'/%3E%3Ctext x='50' y='70' font-size='64' text-anchor='middle' fill='%23ff9b5e' font-family='Georgia' font-weight='700'%3EB%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="motion.css">
 </head>
-<body>
+<body class="">
 <a class="skip" href="#main">Skip to content</a>
-<div class="progress" aria-hidden="true"></div>
 <header class="nav">
-  <a class="logo" href="index.html">Brew<span>tiful</span></a>
+  <a class="logo" href="index.html"><i aria-hidden="true"></i>Brewtiful</a>
   <button class="menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="menu"><i></i><i></i></button>
-  <nav id="menu">
-    <a href="shop.html">Shop</a>
-    <a href="about.html">Our story</a>
-    <a href="faq.html">FAQ</a>
-    <a href="contact.html">Contact</a>
-    <a class="btn small" href="https://brewtiful.club" target="_blank" rel="noopener">Visit store</a>
-  </nav>
+  <nav id="menu"><a href="shop.html">Shop</a><a href="about.html">Our story</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a><a class="btn small" href="https://brewtiful.club" target="_blank" rel="noopener">Visit store</a></nav>
 </header>
 <main id="main">
-  <section class="hero">
-    <div class="blob b1"></div><div class="blob b2"></div>
-    <div class="hero-text">
-      <p class="eyebrow reveal">100% Decaf · Made for Qatar</p>
-      <h1 class="split-lines">
-        <span class="line"><span>All the flavor.</span></span>
-        <span class="line"><span><em>None</em> of the jitters.</span></span>
-      </h1>
-      <p class="lead reveal" style="--d:.5s">Specialty decaf, gently decaffeinated and carefully roasted, so you can enjoy a great cup any time of day. Even at midnight.</p>
-      <div class="cta reveal" style="--d:.65s">
-        <a class="btn magnetic" href="shop.html">Shop the coffee</a>
-        <a class="btn ghost" href="#how">How it works</a>
-      </div>
-    </div>
-    <div class="hero-art" aria-hidden="true">
-      <div class="cup">
-        <span class="steam s1"></span><span class="steam s2"></span><span class="steam s3"></span>
-        <div class="mug"><div class="coffee"></div></div>
-        <div class="saucer"></div>
-      </div>
-      <span class="bean bn1">●</span><span class="bean bn2">●</span><span class="bean bn3">●</span>
-    </div>
-  </section>
 
-  <div class="marquee" aria-hidden="true">
-    <div class="track">
-      <span>Decaf</span><span>✦</span><span>Specialty grade</span><span>✦</span><span>Small batch</span><span>✦</span><span>Zero jitters</span><span>✦</span>
-      <span>Decaf</span><span>✦</span><span>Specialty grade</span><span>✦</span><span>Small batch</span><span>✦</span><span>Zero jitters</span><span>✦</span>
-    </div>
+<section class="hero">
+  <div class="hero-text">
+    <p class="eyebrow">100% decaf · made for Qatar</p>
+    <h1>Decaf, but make it <em>beautiful.</em></h1>
+    <p class="lead">Small-batch specialty decaf in a pouch-and-cup box. Real coffee flavor, any hour of the day. Even midnight.</p>
+    <div class="cta"><a class="btn big" href="shop.html">Shop the coffee</a><a class="btn ghost big" href="#how">How it works</a></div>
+    <ul class="proof"><li><b>7</b> roasts</li><li><b>5</b> pouches + 5 cups per box</li><li><b>0</b> jitters</li></ul>
   </div>
+  <div class="hero-art" id="hero-art" aria-hidden="true"></div>
+  <div class="seal" aria-hidden="true"><svg viewBox="0 0 120 120"><defs><path id="c" d="M60 60m-46 0a46 46 0 1 1 92 0a46 46 0 1 1-92 0"/></defs><text><textPath href="#c">100% DECAF · NO JITTERS · 100% DECAF · NO JITTERS ·</textPath></text></svg><span>☾</span></div>
+</section>
+<div class="marquee" aria-hidden="true"><div class="track">
+  <span>Decaf</span><i>✦</i><span>Specialty grade</span><i>✦</i><span>Small batch</span><i>✦</i><span>Zero jitters</span><i>✦</i>
+  <span>Decaf</span><i>✦</i><span>Specialty grade</span><i>✦</i><span>Small batch</span><i>✦</i><span>Zero jitters</span><i>✦</i>
+</div></div>
 
-  <section class="section statement">
-    <p class="scrub">Great coffee shouldn't keep you up at night. We roast small batches of specialty decaf, so every cup tastes like coffee and sleeps like a dream.</p>
-  </section>
+<section class="section" id="shop">
+  <div class="sec-head reveal"><div><p class="eyebrow">Fan favourites</p><h2>Pick your roast</h2></div><a class="btn ghost" href="shop.html">See all 7 →</a></div>
+  <div class="cards" id="products" data-limit="4"></div>
+</section>
 
-  <section id="shop" class="section">
-    <h2 class="reveal">Fan favourites</h2>
-    <p class="sub reveal">Each box has 5 pouches of ground coffee and 5 paper cups. Brew anywhere.</p>
-    <div class="cards" id="products" data-limit="4"></div>
-    <p class="center-link reveal"><a class="btn ghost" href="shop.html">See the full collection</a></p>
-  </section>
+<section class="section dark">
+  <p class="statement reveal">Great coffee shouldn't keep you up at night. We roast small batches of specialty decaf so every cup <em>tastes like coffee</em> and <em>sleeps like a dream.</em></p>
+</section>
 
-  <section id="why" class="section alt">
-    <div class="split">
-      <div>
-        <h2 class="reveal">Decaf that doesn't taste like decaf</h2>
-        <p class="reveal">Giving up caffeine shouldn't mean giving up great coffee. We start with exceptional beans and roast in small batches to keep the flavor in.</p>
-        <p class="reveal">Enjoy a cup after dinner, during pregnancy, or whenever you want the ritual without the buzz.</p>
-        <p class="reveal"><a class="btn ghost" href="about.html">Read our story</a></p>
-      </div>
-      <ul class="stats">
-        <li class="reveal"><strong data-count="7">0</strong> single-origin &amp; blended roasts</li>
-        <li class="reveal"><strong data-count="100" data-suffix="%">0</strong> decaf, always</li>
-        <li class="reveal"><strong data-count="5">0</strong> pouches in every box</li>
-      </ul>
-    </div>
-  </section>
+<section class="section">
+  <div class="sec-head reveal"><div><p class="eyebrow">Why Brewtiful</p><h2>Decaf that doesn't taste like decaf</h2></div></div>
+  <div class="bento">
+    <div class="tile t-big reveal"><h3>Flavor first</h3><p>We start with exceptional beans that hold up to decaffeination and roast in small batches, so the sweetness and aroma stay in the cup.</p></div>
+    <div class="tile t-apricot reveal"><strong data-count="100" data-suffix="%">100%</strong><p>decaf, always</p></div>
+    <div class="tile t-sun reveal"><strong data-count="7">7</strong><p>single-origin &amp; blended roasts</p></div>
+    <div class="tile t-green reveal"><h3>Brew anywhere</h3><p>No machine, no grinder. Just a pouch, a cup and hot water.</p></div>
+  </div>
+</section>
 
-  <section id="how" class="section">
-    <h2 class="reveal">Brew in three steps</h2>
-    <ol class="steps">
-      <li class="reveal"><span>1</span><h3>Tear</h3><p>Open a pouch of ground coffee.</p></li>
-      <li class="reveal" style="--d:.12s"><span>2</span><h3>Pour</h3><p>Add hot water to your cup.</p></li>
-      <li class="reveal" style="--d:.24s"><span>3</span><h3>Sip</h3><p>Enjoy. No caffeine, no crash.</p></li>
-    </ol>
-  </section>
+<section class="section tint" id="how">
+  <div class="sec-head reveal"><div><p class="eyebrow">Easy</p><h2>Brew in three steps</h2></div></div>
+  <ol class="steps">
+    <li class="reveal"><span>1</span><h3>Tear</h3><p>Open a pouch of ground coffee.</p></li>
+    <li class="reveal" style="--d:.1s"><span>2</span><h3>Pour</h3><p>Add hot water to your cup.</p></li>
+    <li class="reveal" style="--d:.2s"><span>3</span><h3>Sip</h3><p>Enjoy. No caffeine, no crash.</p></li>
+  </ol>
+</section>
 
-  <section class="section alt">
-    <h2 class="reveal">Perfect for every moment</h2>
-    <div class="moments">
-      <div class="reveal"><span>🌙</span><h3>After dinner</h3><p>A proper coffee ending to the evening, with a good night's sleep to follow.</p></div>
-      <div class="reveal" style="--d:.1s"><span>🤰</span><h3>Mums-to-be</h3><p>Keep the ritual you love while keeping caffeine low.</p></div>
-      <div class="reveal" style="--d:.2s"><span>🎁</span><h3>Gifting</h3><p>A box of pouches and cups is an easy, thoughtful present.</p></div>
-      <div class="reveal" style="--d:.3s"><span>🧳</span><h3>On the go</h3><p>No machine, no grinder. Just pouch, cup and hot water.</p></div>
-    </div>
-  </section>
+<section class="section">
+  <div class="sec-head reveal"><div><p class="eyebrow">Any moment</p><h2>Perfect for every moment</h2></div></div>
+  <div class="moments">
+    <div class="reveal"><span>🌙</span><h3>After dinner</h3><p>A proper coffee ending to the evening, with a good night's sleep to follow.</p></div>
+    <div class="reveal" style="--d:.08s"><span>🤰</span><h3>Mums-to-be</h3><p>Keep the ritual you love while keeping caffeine low.</p></div>
+    <div class="reveal" style="--d:.16s"><span>🎁</span><h3>Gifting</h3><p>A box of pouches and cups is an easy, thoughtful present.</p></div>
+    <div class="reveal" style="--d:.24s"><span>🧳</span><h3>On the go</h3><p>Pouch, cup and hot water. Wherever you are.</p></div>
+  </div>
+</section>
 
-  <section class="section">
-    <h2 class="reveal">Quick answers</h2>
-    <div class="faq reveal" id="faq-home"></div>
-    <p class="center-link reveal"><a class="btn ghost" href="faq.html">All questions</a></p>
-  </section>
-
-  <section class="section cta-band center">
-    <h2 class="reveal">Ready for a better cup?</h2>
-    <p class="reveal">Pick your roast and have it delivered.</p>
-    <a class="btn magnetic reveal" href="shop.html">Shop now</a>
-  </section>
+<section class="section tint">
+  <div class="sec-head reveal"><div><p class="eyebrow">FAQ</p><h2>Quick answers</h2></div><a class="btn ghost" href="faq.html">All questions →</a></div>
+  <div class="faq reveal" id="faq-home"></div>
+</section>
+<section class="cta-band reveal"><h2>Ready for a better cup?</h2><p>Pick your roast and have it delivered.</p><a class="btn big" href="shop.html">Shop now</a></section>
 </main>
 <footer class="site-foot">
+  <p class="big-word" aria-hidden="true">Brewtiful</p>
   <div class="foot-grid">
-    <div><a class="logo" href="index.html">Brew<span>tiful</span></a><p>Specialty decaf coffee, made for Qatar. All the flavor, none of the jitters.</p></div>
+    <div><p>Specialty decaf coffee, made for Qatar. All the flavor, none of the jitters.</p></div>
     <div><h4>Explore</h4><a href="shop.html">Shop</a><a href="about.html">Our story</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a></div>
     <div><h4>Get in touch</h4><a href="mailto:brewtiful.qa@gmail.com">brewtiful.qa@gmail.com</a><a href="https://brewtiful.club" target="_blank" rel="noopener">brewtiful.club</a></div>
   </div>
   <p class="copy">© <span id="year">2026</span> Brewtiful · Qatar</p>
 </footer>
 <script src="script.js"></script>
-<script src="motion.js"></script>
 </body>
 </html>
