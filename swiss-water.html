@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>طريقة سويس ووتر</title>
+<meta name="description" content="موشن جرافيك يشرح طريقة سويس ووتر لإزالة الكافيين من القهوة بالماء فقط">
+<style>
+@font-face{font-family:Cairo;font-weight:500;src:url(fonts/Cairo-500.ttf) format('truetype')}
+@font-face{font-family:Cairo;font-weight:700;src:url(fonts/Cairo-700.ttf) format('truetype')}
+@font-face{font-family:Cairo;font-weight:900;src:url(fonts/Cairo-900.ttf) format('truetype')}
+:root{--g900:#06301f;--g800:#0b4d32;--g600:#16794a;--g400:#3fae6e;--g200:#a8dfbb;--g100:#e3f5e9;--w:#fff}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%;background:var(--g900);overflow:hidden}
+body{display:grid;place-items:center;font-family:Cairo,sans-serif;color:var(--w)}
+#frame{position:relative;width:1080px;height:1920px;flex:none;overflow:hidden;transform-origin:center;
+  background:radial-gradient(120% 70% at 50% 35%,#13704a 0%,var(--g800) 45%,var(--g900) 100%)}
+svg *{transform-box:fill-box;transform-origin:center}
+.orb{position:absolute;border-radius:50%;background:var(--g400);filter:blur(80px);opacity:.25}
+.progress{position:absolute;top:0;inset-inline:0;height:10px;background:var(--w);transform-origin:right;transform:scaleX(0)}
+.brand{position:absolute;top:110px;inset-inline:0;text-align:center}
+.brand span{display:inline-block;padding:10px 34px;border:3px solid rgba(255,255,255,.35);border-radius:999px;font-weight:700;font-size:34px;letter-spacing:.01em}
+.scene{position:absolute;inset:0;opacity:0}
+.step{position:absolute;top:250px;inset-inline:0;text-align:center}
+.step span{display:inline-block;background:var(--w);color:var(--g800);font-weight:900;font-size:36px;padding:6px 32px;border-radius:999px}
+.title{position:absolute;top:330px;inset-inline:60px;text-align:center;font-weight:900;font-size:86px;line-height:1.25}
+.sub{position:absolute;top:450px;inset-inline:60px;text-align:center;font-weight:700;font-size:44px;color:var(--g200)}
+.stage{position:absolute;top:540px;left:0;width:1080px;height:860px;overflow:visible}
+.stage text{font-family:Cairo,sans-serif;direction:rtl;unicode-bidi:embed}
+.caption{position:absolute;bottom:250px;left:70px;right:70px;display:grid;background:var(--w);border-radius:34px;
+  padding:34px 44px 38px;box-shadow:0 24px 60px rgba(0,0,0,.25);border-top:12px solid var(--g400)}
+.cap{grid-area:1/1;align-self:center;text-align:center;color:var(--g800);font-weight:700;font-size:48px;line-height:1.6;opacity:0}
+</style>
+</head>
+<body>
+<div id="frame">
+  <div class="orb" style="width:600px;height:600px;top:-120px;right:-200px"></div>
+  <div class="orb" style="width:520px;height:520px;bottom:120px;left:-220px"></div>
+  <div class="progress"></div>
+  <div class="brand"><span>قهوة منزوعة الكافيين</span></div>
+
+  <svg width="0" height="0" style="position:absolute">
+    <defs>
+      <g id="bean">
+        <ellipse rx="26" ry="36" fill="currentColor"/>
+        <path d="M3,-31 C-13,-12 14,10 -3,31" fill="none" stroke="#16794a" stroke-width="5" stroke-linecap="round" opacity=".7"/>
+      </g>
+      <path id="hex" d="M0,-16 L14,-8 L14,8 L0,16 L-14,8 L-14,-8Z"/>
+      <clipPath id="tankA"><rect x="290" y="150" width="500" height="580" rx="40"/></clipPath>
+      <clipPath id="tankB"><rect x="290" y="150" width="500" height="580" rx="40"/></clipPath>
+      <clipPath id="tankC"><rect x="190" y="110" width="700" height="650" rx="50"/></clipPath>
+      <clipPath id="tankD"><rect x="90" y="160" width="380" height="520" rx="36"/></clipPath>
+    </defs>
+  </svg>
+
+  <!-- 0. المقدمة -->
+  <section class="scene" data-s="0" data-e="5.5">
+    <svg class="stage" viewBox="0 0 1080 860">
+      <circle data-in="draw" data-t=".1" cx="540" cy="330" r="270" fill="none" stroke="#fff" stroke-width="10" stroke-dasharray="1700" stroke-dashoffset="1700" stroke-linecap="round"/>
+      <g data-in="pop" data-t=".5"><path d="M540 110 C540 110 390 300 390 400 A150 150 0 0 0 690 400 C690 300 540 110 540 110Z" fill="#a8dfbb"/></g>
+      <g transform="translate(540 395) scale(2.2)"><use href="#bean" data-in="pop" data-t="1" style="color:#fff"/></g>
+    </svg>
+    <div class="title" style="top:1180px" data-in="up" data-t="1.3">طريقة سويس ووتر</div>
+    <div class="sub" style="top:1300px" data-in="up" data-t="1.6">لإزالة الكافيين من القهوة</div>
+  </section>
+
+  <!-- 1. الحبوب الخضراء -->
+  <section class="scene" data-s="5.5" data-e="11">
+    <div class="step" data-in="up"><span>الخطوة ١</span></div>
+    <div class="title" data-in="up" data-t=".15">الحبوب الخضراء</div>
+    <svg class="stage" viewBox="0 0 1080 860" id="s1"></svg>
+  </section>
+
+  <!-- 2. التنقيع -->
+  <section class="scene" data-s="11" data-e="17">
+    <div class="step" data-in="up"><span>الخطوة ٢</span></div>
+    <div class="title" data-in="up" data-t=".15">التنقيع بالماء</div>
+    <svg class="stage" viewBox="0 0 1080 860" id="s2">
+      <rect x="490" y="40" width="100" height="40" rx="14" fill="#fff"/>
+      <rect x="525" y="20" width="30" height="30" rx="6" fill="#fff"/>
+      <rect class="stream" x="527" y="80" width="26" height="400" fill="#e3f5e9" opacity=".8"/>
+      <g clip-path="url(#tankA)">
+        <rect class="water" x="290" y="150" width="500" height="580" fill="#e3f5e9" opacity=".35"/>
+        <g class="beans"></g>
+        <g class="bubbles"></g>
+      </g>
+      <rect x="290" y="150" width="500" height="580" rx="40" fill="none" stroke="#fff" stroke-width="9"/>
+    </svg>
+  </section>
+
+  <!-- 3. مستخلص القهوة الخضراء -->
+  <section class="scene" data-s="17" data-e="23.5">
+    <div class="step" data-in="up"><span>الخطوة ٣</span></div>
+    <div class="title" data-in="up" data-t=".15" style="font-size:78px">مستخلص القهوة الخضراء</div>
+    <svg class="stage" viewBox="0 0 1080 860" id="s3">
+      <g clip-path="url(#tankB)">
+        <rect class="water" x="290" y="150" width="500" height="580" fill="#3fae6e" opacity=".9"/>
+        <g class="hexes"></g>
+      </g>
+      <rect x="290" y="150" width="500" height="580" rx="40" fill="none" stroke="#fff" stroke-width="9"/>
+      <g data-in="pop" data-t="1.6">
+        <rect x="565" y="770" width="260" height="76" rx="38" fill="#fff"/>
+        <text x="695" y="822" text-anchor="middle" font-size="40" font-weight="900" fill="#0b4d32">نكهات ✓</text>
+      </g>
+      <g data-in="pop" data-t="2">
+        <rect x="255" y="770" width="260" height="76" rx="38" fill="none" stroke="#fff" stroke-width="5"/>
+        <text x="385" y="822" text-anchor="middle" font-size="40" font-weight="900" fill="#fff">كافيين ✗</text>
+      </g>
+    </svg>
+  </section>
+
+  <!-- 4. خروج الكافيين -->
+  <section class="scene" data-s="23.5" data-e="31">
+    <div class="step" data-in="up"><span>الخطوة ٤</span></div>
+    <div class="title" data-in="up" data-t=".15">خروج الكافيين</div>
+    <svg class="stage" viewBox="0 0 1080 860" id="s4">
+      <g clip-path="url(#tankC)">
+        <rect x="190" y="110" width="700" height="650" fill="#3fae6e" opacity=".55"/>
+        <g class="hexes"></g>
+        <g class="beans"></g>
+        <g class="dots"></g>
+      </g>
+      <rect x="190" y="110" width="700" height="650" rx="50" fill="none" stroke="#fff" stroke-width="9"/>
+      <g data-in="up" data-t="1">
+        <circle cx="620" cy="814" r="14" fill="#fff"/>
+        <text x="510" y="828" font-size="40" font-weight="700" fill="#fff" text-anchor="middle">الكافيين</text>
+      </g>
+    </svg>
+  </section>
+
+  <!-- 5. فلاتر الكربون -->
+  <section class="scene" data-s="31" data-e="38.5">
+    <div class="step" data-in="up"><span>الخطوة ٥</span></div>
+    <div class="title" data-in="up" data-t=".15">فلاتر الكربون</div>
+    <svg class="stage" viewBox="0 0 1080 860" id="s5">
+      <path d="M460 260 H650" stroke="#fff" stroke-width="34" stroke-linecap="round"/>
+      <path d="M460 260 H650" stroke="#0b4d32" stroke-width="18"/>
+      <path d="M650 620 H460" stroke="#fff" stroke-width="34" stroke-linecap="round"/>
+      <path class="flow" d="M650 620 H460" stroke="#a8dfbb" stroke-width="14" stroke-dasharray="22 18"/>
+      <g clip-path="url(#tankD)">
+        <rect x="90" y="160" width="380" height="520" fill="#3fae6e" opacity=".6"/>
+      </g>
+      <rect x="90" y="160" width="380" height="520" rx="36" fill="none" stroke="#fff" stroke-width="9"/>
+      <rect x="650" y="120" width="300" height="600" rx="30" fill="#06301f" stroke="#fff" stroke-width="9"/>
+      <g class="carbon"></g>
+      <text x="800" y="90" text-anchor="middle" font-size="40" font-weight="900" fill="#fff">فلتر كربون</text>
+      <text x="555" y="700" text-anchor="middle" font-size="32" font-weight="700" fill="#a8dfbb">يعود نظيفًا</text>
+      <g class="dots"></g>
+    </svg>
+  </section>
+
+  <!-- 6. تكرار الدورة -->
+  <section class="scene" data-s="38.5" data-e="45">
+    <div class="step" data-in="up"><span>الخطوة ٦</span></div>
+    <div class="title" data-in="up" data-t=".15">تكرار الدورة</div>
+    <svg class="stage" viewBox="0 0 1080 860" id="s6">
+      <g transform="translate(540 400)"><g class="spin"></g></g>
+      <text id="counter" x="540" y="430" text-anchor="middle" font-size="150" font-weight="900" fill="#fff">٠٪</text>
+      <text x="540" y="510" text-anchor="middle" font-size="44" font-weight="700" fill="#a8dfbb">خالية من الكافيين</text>
+      <g data-in="pop" data-t=".6">
+        <rect x="370" y="0" width="340" height="66" rx="33" fill="#fff"/>
+        <text x="540" y="45" text-anchor="middle" font-size="34" font-weight="900" fill="#0b4d32">حوالي ١٠ ساعات</text>
+      </g>
+    </svg>
+  </section>
+
+  <!-- 7. التجفيف والتحميص -->
+  <section class="scene" data-s="45" data-e="51">
+    <div class="step" data-in="up"><span>الخطوة ٧</span></div>
+    <div class="title" data-in="up" data-t=".15">التجفيف والتحميص</div>
+    <svg class="stage" viewBox="0 0 1080 860" id="s7">
+      <g class="waves"></g>
+      <g class="beans"></g>
+      <path d="M200 300 H880" stroke="#fff" stroke-width="12" stroke-linecap="round"/>
+      <g data-in="up" data-t="2.3"><path d="M540 360 V440 M505 410 L540 445 L575 410" stroke="#a8dfbb" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
+      <g data-in="pop" data-t="2.7">
+        <ellipse cx="540" cy="790" rx="240" ry="28" fill="#a8dfbb"/>
+        <path d="M720 580 C830 580 830 720 720 720" stroke="#fff" stroke-width="26" fill="none"/>
+        <path d="M360 530 H720 V660 A110 110 0 0 1 610 770 H470 A110 110 0 0 1 360 660Z" fill="#fff"/>
+        <ellipse cx="540" cy="530" rx="180" ry="24" fill="#16794a"/>
+        <g transform="translate(540 650) scale(1.3)"><use href="#bean" style="color:#3fae6e"/></g>
+      </g>
+      <g class="steam"></g>
+    </svg>
+  </section>
+
+  <!-- 8. الخاتمة -->
+  <section class="scene" data-s="51" data-e="57">
+    <div class="title" data-in="up" style="top:300px">قهوة بلا كافيين<br>بنكهتها الكاملة</div>
+    <svg class="stage" viewBox="0 0 1080 860" id="s8">
+      <g data-in="right" data-t=".5"><rect x="190" y="220" width="700" height="110" rx="55" fill="#fff"/>
+        <text x="540" y="295" text-anchor="middle" font-size="54" font-weight="900" fill="#0b4d32">١٠٠٪ ماء</text></g>
+      <g data-in="right" data-t=".8"><rect x="190" y="370" width="700" height="110" rx="55" fill="#fff"/>
+        <text x="540" y="445" text-anchor="middle" font-size="54" font-weight="900" fill="#0b4d32">بدون مواد كيميائية</text></g>
+      <g data-in="right" data-t="1.1"><rect x="190" y="520" width="700" height="110" rx="55" fill="#fff"/>
+        <text x="540" y="595" text-anchor="middle" font-size="54" font-weight="900" fill="#0b4d32">٩٩٫٩٪ خالية من الكافيين</text></g>
+    </svg>
+  </section>
+
+  <div class="caption">
+    <p class="cap" data-s="0" data-e="5.5">كيف يُزال الكافيين من القهوة… بالماء فقط وبدون أي مواد كيميائية؟</p>
+    <p class="cap" data-s="5.5" data-e="11">نبدأ بحبوب القهوة الخضراء قبل تحميصها</p>
+    <p class="cap" data-s="11" data-e="17">تُنقع الحبوب في ماء نقي ودافئ لتنظيفها وترطيبها</p>
+    <p class="cap" data-s="17" data-e="23.5">نُحضّر ماءً مشبعًا بكل مركّبات القهوة الذائبة… ما عدا الكافيين</p>
+    <p class="cap" data-s="23.5" data-e="31">لأن الماء مشبع بالنكهات، يخرج الكافيين وحده من الحبة وتبقى النكهة بداخلها</p>
+    <p class="cap" data-s="31" data-e="38.5">تلتقط فلاتر الكربون الكافيين، ويعود المستخلص نظيفًا ليُستخدم من جديد</p>
+    <p class="cap" data-s="38.5" data-e="45">تتكرر الدورة لساعات حتى تصبح القهوة خالية من الكافيين بنسبة ٩٩٫٩٪</p>
+    <p class="cap" data-s="45" data-e="51">تُجفف الحبوب ثم تُرسل للتحميص… بنفس الطعم وبدون كافيين</p>
+    <p class="cap" data-s="51" data-e="57">ماء، وحرارة، ووقت… هذا كل سر طريقة سويس ووتر</p>
+  </div>
+</div>
+
+<script>
+const D = 57, EASE = 'cubic-bezier(.2,.8,.2,1)', NS = 'http://www.w3.org/2000/svg';
+const $ = (s, r = document) => r.querySelector(s);
+const ar = s => String(s).replace(/\d/g, d => '٠١٢٣٤٥٦٧٨٩'[d]).replace('.', '٫');
+let seed = 7; const rnd = (a, b) => a + (b - a) * ((seed = (seed * 9301 + 49297) % 233280) / 233280);
+
+function el(tag, attrs, parent) {
+  const e = document.createElementNS(NS, tag);
+  for (const k in attrs) e.setAttribute(k, attrs[k]);
+  parent && parent.appendChild(e);
+  return e;
+}
+function bean(parent, x, y, r = 0, s = 1, color = '#cdeed6') {
+  const g = el('g', { transform: `translate(${x} ${y}) rotate(${r}) scale(${s})` }, parent);
+  const inner = el('g', {}, el('g', {}, g));
+  el('use', { href: '#bean', style: `color:${color}` }, inner);
+  return inner;
+}
+function anim(e, kf, start, dur, o = {}) {
+  return e.animate(kf, { delay: start * 1000, duration: dur * 1000, fill: o.fill || 'both', easing: o.ease || EASE, iterations: o.iter || 1, direction: o.dir || 'normal' });
+}
+function span(e, s, en, f = .5) {
+  const k = t => Math.min(1, Math.max(0, t / D));
+  anim(e, [{ opacity: 0, offset: 0 }, { opacity: 0, offset: k(s) }, { opacity: 1, offset: k(s + f) },
+           { opacity: 1, offset: k(en - f) }, { opacity: 0, offset: k(en) }, { opacity: 0, offset: 1 }], 0, D, { ease: 'linear' });
+}
+const IN = {
+  up:    [{ opacity: 0, transform: 'translateY(50px)' }, { opacity: 1, transform: 'none' }],
+  right: [{ opacity: 0, transform: 'translateX(-120px)' }, { opacity: 1, transform: 'none' }],
+  pop:   [{ opacity: 0, transform: 'scale(.3)' }, { opacity: 1, transform: 'scale(1)' }],
+  draw:  [{ strokeDashoffset: 1700 }, { strokeDashoffset: 0 }],
+};
+
+/* ---------- build scenes ---------- */
+// 1: beans pop in
+[[540,420,0,2.6],[330,290,-30,2],[760,280,25,2.1],[290,560,20,1.9],[800,570,-20,2],[460,680,60,1.6],[650,140,-50,1.5],[640,700,-70,1.5]]
+  .forEach(([x,y,r,s], i) => { const b = bean($('#s1'), x, y, r, s); b.dataset.in = 'pop'; b.dataset.t = .4 + i * .12; b.dataset.bob = 1; });
+
+// 2: soaking
+const s2 = $('#s2');
+[[400,670,80],[520,690,100],[640,665,70],[700,690,110],[460,620,30]].forEach(([x,y,r]) => { const b = bean($('.beans', s2), x, y, r, 1.4); b.dataset.bob = 1; });
+for (let i = 0; i < 12; i++) el('circle', { cx: rnd(330, 750), cy: rnd(640, 720), r: rnd(6, 13), fill: 'none', stroke: '#fff', 'stroke-width': 3, class: 'bubble' }, $('.bubbles', s2));
+
+// 3 & 4: flavour hexagons
+function hexes(g, n, box) { for (let i = 0; i < n; i++) { const w = el('g', { transform: `translate(${rnd(box[0], box[2])} ${rnd(box[1], box[3])}) scale(${rnd(.9, 1.5)})` }, g);
+  el('use', { href: '#hex', fill: 'none', stroke: '#e3f5e9', 'stroke-width': 4, class: 'hx' }, w); } }
+hexes($('.hexes', $('#s3')), 16, [330, 190, 750, 700]);
+hexes($('.hexes', $('#s4')), 10, [230, 150, 850, 720]);
+
+// 4: caffeine leaving beans
+const s4 = $('#s4');
+[[370,430,-20],[540,540,10],[710,420,30]].forEach(([x,y,r], bi) => {
+  bean($('.beans', s4), x, y, r, 2.7).dataset.bob = 1;
+  for (let i = 0; i < 7; i++) { const a = rnd(0, Math.PI * 2), d = rnd(110, 200);
+    const c = el('circle', { cx: x, cy: y, r: 11, fill: '#fff', class: 'cf' }, $('.dots', s4));
+    c.dataset.dx = Math.cos(a) * d; c.dataset.dy = Math.sin(a) * d; c.dataset.t = 1 + bi * .25 + i * .33; }
+});
+
+// 5: carbon filter
+const s5 = $('#s5');
+for (let r = 0; r < 11; r++) for (let c = 0; c < 5; c++) el('circle', { cx: 690 + c * 55 + (r % 2) * 27, cy: 160 + r * 52, r: 16, fill: '#16794a', opacity: .55 }, $('.carbon', s5));
+for (let i = 0; i < 16; i++) { const c = el('circle', { r: 11, fill: '#fff', class: 'trav' }, $('.dots', s5));
+  Object.assign(c.dataset, { x0: rnd(150, 420), y0: rnd(330, 640), fx: rnd(690, 910), fy: rnd(160, 600), t: .8 + i * .3 }); }
+
+// 6: cycle ring with arrowheads
+const spin = $('.spin', $('#s6'));
+el('circle', { r: 300, fill: 'none', stroke: '#fff', 'stroke-width': 14, 'stroke-dasharray': '842 100', 'stroke-linecap': 'round' }, spin);
+[164, 344].forEach(a => { const rad = a * Math.PI / 180;
+  el('path', { d: 'M-22,-26 L26,0 L-22,26Z', fill: '#fff', transform: `translate(${300 * Math.cos(rad)} ${300 * Math.sin(rad)}) rotate(${a + 90})` }, spin); });
+for (let i = 0; i < 6; i++) { const rad = (i * 60 + 30) * Math.PI / 180; el('use', { href: '#hex', fill: '#a8dfbb', transform: `translate(${360 * Math.cos(rad)} ${360 * Math.sin(rad)}) scale(1.1)`, opacity: .7 }, spin); }
+
+// 7: drying beans, heat waves, steam
+const s7 = $('#s7');
+[260, 370, 480, 600, 710, 820].forEach((x, i) => { const b = bean($('.beans', s7), x, 262, 90 + (i % 2 ? 15 : -15), 1.15); b.classList.add('dry'); });
+[330, 540, 750].forEach((x, i) => el('path', { class: 'wave', d: `M${x} 230 c -25 -30 25 -50 0 -80 c -25 -30 25 -50 0 -80`, fill: 'none', stroke: '#a8dfbb', 'stroke-width': 8, 'stroke-linecap': 'round', 'data-t': i * .4 }, $('.waves', s7)));
+[480, 540, 600].forEach((x, i) => el('path', { class: 'smoke', d: `M${x} 490 c -22 -28 22 -46 0 -74 c -22 -28 22 -46 0 -74`, fill: 'none', stroke: '#fff', 'stroke-width': 9, 'stroke-linecap': 'round', 'data-t': 3 + i * .45 }, $('.steam', s7)));
+
+/* ---------- timeline ---------- */
+anim($('.progress'), [{ transform: 'scaleX(0)' }, { transform: 'scaleX(1)' }], 0, D, { ease: 'linear' });
+document.querySelectorAll('.orb').forEach((o, i) => anim(o, [{ transform: 'translate(0,0) scale(1)' }, { transform: `translate(${i ? 80 : -80}px,60px) scale(1.2)` }], 0, 7, { iter: Infinity, dir: 'alternate', ease: 'ease-in-out' }));
+document.querySelectorAll('.cap').forEach(c => { const s = +c.dataset.s, e = +c.dataset.e; span(c, s, e, .4);
+  anim(c, [{ transform: 'translateY(24px)' }, { transform: 'none' }], s, .6); });
+
+document.querySelectorAll('.scene').forEach(sc => {
+  const S = +sc.dataset.s, E = +sc.dataset.e;
+  span(sc, S, E);
+  sc.querySelectorAll('[data-in]').forEach(e => anim(e, IN[e.dataset.in], S + (+e.dataset.t || 0), .9));
+  sc.querySelectorAll('[data-bob]').forEach((e, i) => anim(e.parentNode, [{ transform: 'translateY(-10px)' }, { transform: 'translateY(10px)' }], S + i * .2, 1.6, { iter: Infinity, dir: 'alternate', ease: 'ease-in-out' }));
+  sc.querySelectorAll('.hx').forEach((e, i) => { anim(e, [{ transform: 'translate(0,0) rotate(0deg)' }, { transform: `translate(${rnd(-20, 20)}px,${rnd(-30, 30)}px) rotate(60deg)` }], S, rnd(2, 3.2), { iter: Infinity, dir: 'alternate', ease: 'ease-in-out' });
+    anim(e, [{ opacity: 0 }, { opacity: 1 }], S + .8 + i * .05, .6); });
+});
+
+// scene 2: water fills, stream stops, bubbles
+anim($('.water', s2), [{ transform: 'scaleY(0)', transformOrigin: 'center bottom' }, { transform: 'scaleY(1)', transformOrigin: 'center bottom' }], 11.4, 2.8, { ease: 'ease-out' });
+anim($('.stream', s2), [{ opacity: 0 }, { opacity: .8, offset: .1 }, { opacity: .8, offset: .85 }, { opacity: 0 }], 11.3, 3);
+s2.querySelectorAll('.bubble').forEach((b, i) => anim(b, [{ transform: 'translateY(0)', opacity: 0 }, { opacity: .9, offset: .2 }, { transform: 'translateY(-480px)', opacity: 0 }], 13 + i * .25, 2.4, { iter: Infinity, ease: 'ease-in' }));
+
+// scene 3: green extract pours in
+anim($('.water', $('#s3')), [{ transform: 'scaleY(0)', transformOrigin: 'center bottom' }, { transform: 'scaleY(1)', transformOrigin: 'center bottom' }], 17.3, 2, { ease: 'ease-out' });
+
+// scene 4: caffeine diffuses out
+s4.querySelectorAll('.cf').forEach(c => anim(c, [{ transform: 'translate(0,0) scale(.2)', opacity: 0 }, { opacity: 1, offset: .25 },
+  { transform: `translate(${c.dataset.dx}px,${c.dataset.dy}px) scale(1)`, opacity: 1, offset: .8 }, { transform: `translate(${c.dataset.dx}px,${c.dataset.dy}px) scale(1)`, opacity: 0 }], 23.5 + +c.dataset.t, 2.6, { iter: Infinity, ease: 'ease-out' }));
+
+// scene 5: caffeine travels into the carbon filter and stays
+s5.querySelectorAll('.trav').forEach(c => { const d = c.dataset;
+  anim(c, [{ transform: `translate(${d.x0}px,${d.y0}px)`, opacity: 0 }, { opacity: 1, offset: .1 }, { transform: 'translate(440px,260px)', offset: .4 },
+    { transform: 'translate(660px,260px)', offset: .62 }, { transform: `translate(${d.fx}px,${d.fy}px)`, opacity: 1 }], 31 + +d.t, 2.2, { ease: 'ease-in-out' }); });
+anim($('.flow', s5), [{ strokeDashoffset: 0 }, { strokeDashoffset: -80 }], 31, .8, { iter: Infinity, ease: 'linear' });
+
+// scene 6: spin
+anim(spin, [{ transform: 'rotate(0deg)' }, { transform: 'rotate(360deg)' }], 38.5, 4, { iter: Infinity, ease: 'linear' });
+
+// scene 7: drying + steam
+s7.querySelectorAll('.dry').forEach(b => anim(b.firstChild, [{ color: '#cdeed6' }, { color: '#ffffff' }], 45.6, 1.8));
+s7.querySelectorAll('.wave').forEach(w => anim(w, [{ transform: 'translateY(0)', opacity: 0 }, { opacity: .9, offset: .3 }, { transform: 'translateY(-60px)', opacity: 0 }], 45.3 + +w.dataset.t, 1.6, { iter: Infinity, ease: 'ease-out' }));
+s7.querySelectorAll('.smoke').forEach(w => anim(w, [{ transform: 'translateY(0)', opacity: 0 }, { opacity: .8, offset: .3 }, { transform: 'translateY(-70px)', opacity: 0 }], 45 + +w.dataset.t, 1.8, { iter: Infinity, ease: 'ease-out' }));
+
+/* ---------- clock ---------- */
+const counter = $('#counter');
+function setTime(t) {
+  document.getAnimations().forEach(a => { a.pause(); a.currentTime = t * 1000; });
+  const p = Math.min(1, Math.max(0, (t - 39.2) / 4.3)), v = 99.9 * (1 - Math.pow(1 - p, 3));
+  counter.textContent = ar(p >= 1 ? '99.9' : v < 10 ? v.toFixed(1) : v.toFixed(1)) + '٪';
+}
+window.setTime = setTime; window.DURATION = D;
+
+const frame = $('#frame');
+function fit() { const s = Math.min(innerWidth / 1080, innerHeight / 1920); frame.style.transform = `scale(${s})`; }
+if (!/render/.test(location.search)) {
+  fit(); addEventListener('resize', fit);
+  document.fonts.ready.then(() => { const t0 = performance.now();
+    (function loop() { setTime(((performance.now() - t0) / 1000) % D); requestAnimationFrame(loop); })(); });
+} else setTime(0);
+</script>
+</body>
+</html>
