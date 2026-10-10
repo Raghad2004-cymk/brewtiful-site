@@ -30,6 +30,11 @@ svg *{transform-box:fill-box;transform-origin:center}
 .caption{position:absolute;bottom:250px;left:70px;right:70px;display:grid;background:var(--w);border-radius:34px;
   padding:34px 44px 38px;box-shadow:0 24px 60px rgba(0,0,0,.25);border-top:12px solid var(--g400)}
 .cap{grid-area:1/1;align-self:center;text-align:center;color:var(--g800);font-weight:700;font-size:48px;line-height:1.6;opacity:0}
+/* نسخة الريل: إبعاد النصوص عن أزرار وواجهة إنستقرام */
+.reel .brand{top:180px}.reel .step{top:275px}.reel .title{top:368px;font-size:76px}
+.reel .stage{top:515px;height:715px}
+.reel .intro-t{top:1030px!important;font-size:86px}.reel .intro-s{top:1150px!important}.reel .outro-t{top:330px!important}
+.reel .caption{bottom:430px;left:60px;right:150px;padding:28px 36px 32px}.reel .cap{font-size:44px}
 </style>
 </head>
 <body>
@@ -60,8 +65,8 @@ svg *{transform-box:fill-box;transform-origin:center}
       <g data-in="pop" data-t=".5"><path d="M540 110 C540 110 390 300 390 400 A150 150 0 0 0 690 400 C690 300 540 110 540 110Z" fill="#a8dfbb"/></g>
       <g transform="translate(540 395) scale(2.2)"><use href="#bean" data-in="pop" data-t="1" style="color:#fff"/></g>
     </svg>
-    <div class="title" style="top:1180px" data-in="up" data-t="1.3">طريقة سويس ووتر</div>
-    <div class="sub" style="top:1300px" data-in="up" data-t="1.6">لإزالة الكافيين من القهوة</div>
+    <div class="title intro-t" style="top:1180px" data-in="up" data-t="1.3">طريقة سويس ووتر</div>
+    <div class="sub intro-s" style="top:1300px" data-in="up" data-t="1.6">لإزالة الكافيين من القهوة</div>
   </section>
 
   <!-- 1. الحبوب الخضراء -->
@@ -186,7 +191,7 @@ svg *{transform-box:fill-box;transform-origin:center}
 
   <!-- 8. الخاتمة -->
   <section class="scene" data-s="51" data-e="57">
-    <div class="title" data-in="up" style="top:300px">قهوة بلا كافيين<br>بنكهتها الكاملة</div>
+    <div class="title outro-t" data-in="up" style="top:300px">قهوة بلا كافيين<br>بنكهتها الكاملة</div>
     <svg class="stage" viewBox="0 0 1080 860" id="s8">
       <g data-in="right" data-t=".5"><rect x="190" y="220" width="700" height="110" rx="55" fill="#fff"/>
         <text x="540" y="295" text-anchor="middle" font-size="54" font-weight="900" fill="#0b4d32">١٠٠٪ ماء</text></g>
@@ -338,6 +343,7 @@ function setTime(t) {
 window.setTime = setTime; window.DURATION = D;
 
 const frame = $('#frame');
+if (/reel/.test(location.search)) frame.classList.add('reel');
 function fit() { const s = Math.min(innerWidth / 1080, innerHeight / 1920); frame.style.transform = `scale(${s})`; }
 if (!/render/.test(location.search)) {
   fit(); addEventListener('resize', fit);
