@@ -11,62 +11,23 @@ S = lambda v: v*SCALE
 
 files = ['a6574dcd','9efca64b','7f14ad28','4d2c96e1','68597587']  # Colombia, Honduras, Ethiopia, Cinnamon, Grogg
 
-# ---- background: warm limestone studio, window-light gobo, travertine plinth ----
+# ---- background: user-supplied ground-coffee photo, cover-fit, gentle light pool ----
+rng = np.random.default_rng(7)
+BOX_H = S(1500); CX, CBOT = W/2, H*0.70
+src = Image.open(os.environ.get("BG_IMG")).convert("RGB")
+k = max(W/src.width, H/src.height)
+src = src.resize((math.ceil(src.width*k), math.ceil(src.height*k)), Image.LANCZOS)
+ox, oy = (src.width-W)//2, (src.height-H)//2
+bg = np.array(src.crop((ox, oy, ox+W, oy+H)), np.float32)
 yy, xx = np.mgrid[0:H, 0:W].astype(np.float32)
-rng = np.random.default_rng(1)
-BOX_H = S(1500); CX, CBOT = W/2, H*0.66
-FLOOR_Y = H*0.79
-# wall
-wall_top = np.array([226, 212, 192], np.float32); wall_bot = np.array([238, 227, 210], np.float32)
-v = np.clip(yy/FLOOR_Y, 0, 1)[..., None]
-bg = wall_top*(1-v) + wall_bot*v
-glow = np.exp(-(((xx-W*0.45)/(W*0.55))**2 + ((yy-H*0.42)/(H*0.30))**2))[..., None]
-bg = bg + glow*np.array([22, 18, 12], np.float32)
-# window light (sheared panes, heavily diffused)
-pane = Image.new("L", (W, H), 0); pd = ImageDraw.Draw(pane)
-pw, ph, gap = S(330), S(520), S(46)
-ox, oy = W*0.02, H*0.10
-for r_ in range(3):
-    for c_ in range(2):
-        x = ox + c_*(pw+gap); y = oy + r_*(ph+gap)
-        pd.rectangle((x, y, x+pw, y+ph), fill=255)
-pane = pane.transform((W, H), Image.AFFINE, (1, 0.42, -S(40), 0, 1, 0)).filter(ImageFilter.GaussianBlur(S(38)))
-pm = np.array(pane, np.float32)[..., None]/255
-bg = bg + pm*np.array([26, 20, 10], np.float32)
-# floor
-fl = np.clip((yy-FLOOR_Y)/(H-FLOOR_Y), 0, 1)[..., None]
-floor_col = np.array([222, 207, 186], np.float32)*(1-0.10*fl)
-bg = np.where(yy[..., None] >= FLOOR_Y, floor_col + glow*np.array([10, 8, 5], np.float32), bg)
-seam = np.exp(-((yy-FLOOR_Y)/S(6))**2)[..., None]
-bg = bg - seam*8
-# travertine plinth
-RX, RY = S(900), S(150)
-TY = CBOT - S(50); BY = H*0.835
-side = (np.abs(xx-CX) <= RX) & (yy >= TY) & (yy <= BY + RY*np.sqrt(np.clip(1-((xx-CX)/RX)**2, 0, 1)))
-top = ((xx-CX)/RX)**2 + ((yy-TY)/RY)**2 <= 1
-# floor shadow of plinth (light from upper-left)
-sh = Image.new("L", (W, H), 0)
-ImageDraw.Draw(sh).ellipse((CX-RX+S(120), BY-RY*0.6, CX+RX+S(260), BY+RY*1.4), fill=255)
-sh = np.array(sh.filter(ImageFilter.GaussianBlur(S(60))), np.float32)[..., None]/255
-bg = bg*(1-0.22*sh)
-u = np.clip((xx-CX)/RX, -1, 1)
-shade = 1.0 - 0.22*(u+1)/2 - 0.10*np.clip((u+0.35)*2, 0, 1)*0 + 0.06*np.exp(-((u+0.55)/0.25)**2)
-side_col = np.array([231, 219, 200], np.float32)[None, None, :]*shade[..., None]
-side_col = side_col*(1-0.05*np.clip((yy-TY)/(BY-TY), 0, 1))[..., None]
-# vein streaks
-streak = np.array(Image.fromarray((rng.normal(128, 40, (H, max(1, W//60)))).clip(0, 255).astype(np.uint8)).resize((W, H), Image.BILINEAR), np.float32)
-side_col = side_col + ((streak-128)/128*3.0)[..., None]
-bg = np.where(side[..., None], side_col, bg)
-tr = np.sqrt(((xx-CX+S(200))/RX)**2 + ((yy-TY)/RY)**2)
-top_col = np.array([241, 233, 219], np.float32)[None, None, :]*(1-0.05*np.clip(tr, 0, 1.4))[..., None]
-bg = np.where(top[..., None], top_col, bg)
-rim = top & (((xx-CX)/RX)**2 + ((yy-TY)/RY)**2 > 0.965) & (yy > TY)
-bg = np.where(rim[..., None], bg*1.035, bg)
-bg += rng.normal(0, 1.1, bg.shape[:2])[..., None]  # fine grain against banding
+pool = np.exp(-(((xx-W*0.5)/(W*0.75))**2 + ((yy-H*0.52)/(H*0.42))**2))[..., None]
+bg = bg*(0.72 + 0.42*pool)
+bg += rng.normal(0, 2.0, bg.shape[:2])[..., None]  # restore fine grain lost in upscaling
 bg = np.clip(bg, 0, 255).astype(np.float32)
 
 # ---- boxes normalised to identical height + centre ----
 boxes = []
+
 for f in files:
     im = Image.open(f"{UP}/{f}-image.png").convert("RGBA")
     a = np.array(im)[..., 3]; ys, xs = np.where(a > 8)
@@ -80,11 +41,11 @@ for f in files:
     # shadows: soft drop + tight contact
     am = Image.fromarray((al[..., 0]*255).astype(np.uint8))
     soft = np.array(am.transform(am.size, Image.AFFINE, (1, 0, S(-25), 0, 1, S(-45)))
-                    .filter(ImageFilter.GaussianBlur(S(60))), np.float32)/255*0.20
+                    .filter(ImageFilter.GaussianBlur(S(60))), np.float32)/255*0.45
     contact = Image.new("L", (W, H), 0)
     ImageDraw.Draw(contact).ellipse((x0+S(30), CBOT-S(22), x0+im.width-S(10), CBOT+S(26)), fill=255)
-    contact = np.array(contact.filter(ImageFilter.GaussianBlur(S(22))), np.float32)/255*0.45
-    shadow = np.clip(soft + contact, 0, 0.7)[..., None]
+    contact = np.array(contact.filter(ImageFilter.GaussianBlur(S(22))), np.float32)/255*0.8
+    shadow = np.clip(soft + contact, 0, 0.85)[..., None]
     boxes.append(dict(rgb=rgb, al=al, shadow=shadow, mask=al[..., 0] > 0.9, bbox=(x0, y0, x0+im.width, CBOT)))
 
 def comp_box(i):
@@ -196,9 +157,9 @@ for n in range(N):
     for k in range(5):
         x = xs0 + gap*k
         if k == cur_idx:
-            d.rounded_rectangle((x-S(22), y-S(7), x+S(22), y+S(7)), radius=S(7), fill=(23,52,44,235))
+            d.rounded_rectangle((x-S(22), y-S(7), x+S(22), y+S(7)), radius=S(7), fill=(241,233,219,240))
         else:
-            d.ellipse((x-S(7), y-S(7), x+S(7), y+S(7)), fill=(23,52,44,70))
+            d.ellipse((x-S(7), y-S(7), x+S(7), y+S(7)), fill=(241,233,219,90))
     frame.alpha_composite(ov)
     cimg, (hx, hy) = cursor(press(t))
     px, py = cursor_pos(t)
