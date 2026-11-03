@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1206 1206" width="1206" height="1206">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@600&amp;family=Caveat:wght@700&amp;display=swap');
+      .title { font-family: 'Fredoka', 'Arial Rounded MT Bold', sans-serif; font-weight: 600; }
+      .script { font-family: 'Caveat', 'Comic Sans MS', cursive; font-weight: 700; }
+      .ink { fill: none; stroke: #2b1d14; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+      .thin { fill: none; stroke: #2b1d14; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+      .cheek { fill: #f2a0a0; opacity: .8; }
+    </style>
+    <path id="titleArc" d="M102,465 A1700 1700 0 0 1 1102,465"/>
+    <path id="subArc" d="M182,900 A1556 1556 0 0 1 1022,900"/>
+    <symbol id="star" viewBox="-10 -10 20 20">
+      <path d="M0,-10 L2.6,-3.4 L9.5,-3.1 L4.1,1.3 L5.9,8.1 L0,4.2 L-5.9,8.1 L-4.1,1.3 L-9.5,-3.1 L-2.6,-3.4 Z"/>
+    </symbol>
+    <symbol id="bean" viewBox="-10 -14 20 28">
+      <ellipse rx="9" ry="13"/>
+      <path d="M0,-12 C-5,-4 5,4 0,12" fill="none" stroke="#fbf6ee" stroke-width="2"/>
+    </symbol>
+  </defs>
+
+  <rect width="1206" height="1206" fill="#ffffff"/>
+
+  <!-- قالب الكوب -->
+  <path d="M40,375 A1710 1710 0 0 1 1165,375 L1030,930 A1556 1556 0 0 0 175,930 Z"
+        fill="#fbf6ee" stroke="#cfc3b2" stroke-width="2"/>
+
+  <!-- العنوان -->
+  <text class="title" font-size="92" fill="#2b1d14" text-anchor="middle" letter-spacing="2">
+    <textPath href="#titleArc" startOffset="50%">Brewtiful</textPath>
+  </text>
+  <use href="#bean" x="300" y="398" width="22" height="30" fill="#b5622b" transform="rotate(-18 311 413)"/>
+  <use href="#bean" x="884" y="398" width="22" height="30" fill="#b5622b" transform="rotate(18 895 413)"/>
+
+  <!-- زخارف: نجوم ونقاط -->
+  <g fill="#e9b94f">
+    <use href="#star" x="345" y="500" width="24" height="24"/>
+    <use href="#star" x="858" y="470" width="30" height="30"/>
+    <use href="#star" x="590" y="645" width="20" height="20"/>
+    <use href="#star" x="330" y="660" width="18" height="18"/>
+  </g>
+  <g fill="#3d4a7a">
+    <use href="#star" x="560" y="480" width="18" height="18"/>
+    <use href="#star" x="880" y="640" width="22" height="22"/>
+  </g>
+  <g fill="#b5622b">
+    <circle cx="360" cy="580" r="4"/><circle cx="600" cy="540" r="4"/><circle cx="640" cy="470" r="3"/>
+    <circle cx="560" cy="720" r="4"/><circle cx="905" cy="560" r="4"/><circle cx="645" cy="700" r="3"/>
+  </g>
+  <g fill="#3d4a7a">
+    <circle cx="390" cy="470" r="3"/><circle cx="625" cy="610" r="3"/><circle cx="845" cy="700" r="4"/>
+    <circle cx="335" cy="625" r="3"/>
+  </g>
+
+  <!-- ===== حبة القهوة ===== -->
+  <g>
+    <g transform="rotate(-18 470 560)">
+      <ellipse cx="478" cy="567" rx="80" ry="104" fill="#b5622b"/>
+      <ellipse cx="470" cy="560" rx="78" ry="102" fill="#8a5a3b" stroke="#2b1d14" stroke-width="4"/>
+      <path d="M470,460 C445,500 492,515 474,555" fill="none" stroke="#5e3a24" stroke-width="5" stroke-linecap="round"/>
+    </g>
+    <!-- الوجه -->
+    <path d="M436,578 q9,-9 18,0" fill="none" stroke="#fbf6ee" stroke-width="3.5" stroke-linecap="round"/>
+    <path d="M482,570 q9,-9 18,0" fill="none" stroke="#fbf6ee" stroke-width="3.5" stroke-linecap="round"/>
+    <path d="M452,602 q18,16 34,-4" fill="none" stroke="#fbf6ee" stroke-width="3.5" stroke-linecap="round"/>
+    <ellipse class="cheek" cx="428" cy="600" rx="10" ry="6"/>
+    <ellipse class="cheek" cx="508" cy="590" rx="10" ry="6"/>
+    <!-- الأذرع -->
+    <path class="thin" d="M396,598 Q365,585 350,555 M350,555 l-10,-4 M350,555 l-2,-11 M350,555 l8,-6"/>
+    <path class="thin" d="M542,590 Q572,604 598,600"/>
+    <!-- الأرجل -->
+    <path class="thin" d="M452,656 L448,712 M496,646 L502,712"/>
+    <!-- أحذية رياضية -->
+    <g stroke="#2b1d14" stroke-width="3" stroke-linejoin="round">
+      <path d="M426,712 h30 v14 q22,2 24,14 v6 h-56 q-4,-18 2,-34z" fill="#f6d77a"/>
+      <path d="M424,738 h56" stroke-width="2.5"/>
+      <path d="M494,712 h30 v14 q22,2 24,14 v6 h-56 q-4,-18 2,-34z" fill="#f6d77a"/>
+      <path d="M492,738 h56" stroke-width="2.5"/>
+    </g>
+  </g>
+
+  <!-- قلب صغير بين اليدين -->
+  <path d="M604,614 C581,598 587,580 599,584 C603,585 604,589 604,591 C605,588 607,584 612,584 C623,584 625,600 604,614Z"
+        fill="#b5622b" stroke="#2b1d14" stroke-width="2.5" stroke-linejoin="round"/>
+
+  <!-- ===== القمر النعسان ===== -->
+  <g>
+    <path d="M783,477 A95 95 0 1 0 783,657 A130 130 0 0 1 783,477Z" fill="#e9b94f"/>
+    <path d="M775,470 A95 95 0 1 0 775,650 A130 130 0 0 1 775,470Z" fill="#f6d77a" stroke="#2b1d14" stroke-width="4" stroke-linejoin="round"/>
+    <!-- قبعة النوم -->
+    <path d="M700,486 Q735,420 800,418 Q770,445 760,474 Q730,470 700,486Z" fill="#3d4a7a" stroke="#2b1d14" stroke-width="3.5" stroke-linejoin="round"/>
+    <path d="M696,488 Q730,466 764,476" fill="none" stroke="#fbf6ee" stroke-width="9" stroke-linecap="round"/>
+    <circle cx="806" cy="418" r="11" fill="#fbf6ee" stroke="#2b1d14" stroke-width="3"/>
+    <!-- الوجه -->
+    <path class="thin" d="M668,540 q8,7 16,0"/>
+    <path class="thin" d="M700,540 q8,7 16,0"/>
+    <path class="thin" d="M678,568 q14,12 26,0"/>
+    <ellipse class="cheek" cx="664" cy="562" rx="8" ry="5"/>
+    <ellipse class="cheek" cx="718" cy="562" rx="8" ry="5"/>
+    <!-- Z Z Z -->
+    <text class="title" font-size="30" fill="#3d4a7a" x="820" y="510">z</text>
+    <text class="title" font-size="24" fill="#3d4a7a" x="842" y="488">z</text>
+    <text class="title" font-size="18" fill="#3d4a7a" x="860" y="470">z</text>
+    <!-- الأذرع -->
+    <path class="thin" d="M654,590 Q632,602 610,600"/>
+    <path class="thin" d="M752,628 Q800,640 845,612 M845,612 l2,-11 M845,612 l11,-3 M845,612 l8,8"/>
+    <!-- الأرجل -->
+    <path class="thin" d="M712,652 L708,712 M755,652 L760,712"/>
+    <!-- أحذية -->
+    <g stroke="#2b1d14" stroke-width="3" stroke-linejoin="round">
+      <path d="M686,712 h30 v14 q22,2 24,14 v6 h-56 q-4,-18 2,-34z" fill="#b5622b"/>
+      <path d="M684,738 h56" stroke="#fbf6ee" stroke-width="2.5"/>
+      <path d="M752,712 h30 v14 q22,2 24,14 v6 h-56 q-4,-18 2,-34z" fill="#b5622b"/>
+      <path d="M750,738 h56" stroke="#fbf6ee" stroke-width="2.5"/>
+    </g>
+  </g>
+
+  <!-- النص السفلي -->
+  <text class="script" font-size="58" fill="#8f4a1d" text-anchor="middle">
+    <textPath href="#subArc" startOffset="50%">good coffee · good nights</textPath>
+  </text>
+</svg>
