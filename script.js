@@ -1,3 +1,4 @@
+document.documentElement.classList.add('js');
 const STORE = 'https://brewtiful.club';
 const PRODUCTS = [
   {t:'Ethiopia Sidamo Bombe Decaf', h:'ethiopia-sidamo-bombe', p:110, s:5, i:'4E73B99E-55CD-4941-AD7D-3CF5A7800D33.png?v=1789062616'},
@@ -32,18 +33,10 @@ const card = (x, n) => {
   return `<article class="card reveal in" style="--d:${(n % 4) * .08}s">${badge}
     <div class="img"><img src="${IMG}${x.i}&width=600" alt="${esc(x.t)}" loading="lazy" onerror="this.remove()"></div>
     <div class="body"><h3>${esc(x.t)}</h3><p>5 pouches of ground coffee + 5 paper cups</p>
-    <span class="price">${x.p} QAR</span>
-    <a class="btn${out ? ' soldout' : ''}" href="${STORE}/products/${x.h}" target="_blank" rel="noopener">${out ? 'Sold out' : 'Buy now'}</a></div></article>`;
+    <div class="foot"><span class="price">${x.p} QAR</span>
+    <a class="btn small${out ? ' soldout' : ''}" href="${STORE}/products/${x.h}" target="_blank" rel="noopener">${out ? 'Sold out' : 'Buy now'}</a></div></div></article>`;
 };
 let filter = 'all', sort = 'default';
-const tilt = c => {
-  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  c.addEventListener('mousemove', e => {
-    const r = c.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
-    c.style.transform = `perspective(800px) rotateY(${x * 8}deg) rotateX(${-y * 8}deg) translateY(-6px)`;
-  });
-  c.addEventListener('mouseleave', () => c.style.transform = '');
-};
 const renderProducts = () => {
   if (!grid) return;
   let list = PRODUCTS.filter(x => filter === 'all' || x.s > 0);
@@ -53,7 +46,6 @@ const renderProducts = () => {
   const limit = +grid.dataset.limit;
   if (limit) list = list.filter(x => x.s > 0).slice(0, limit);
   grid.innerHTML = list.map(card).join('');
-  grid.querySelectorAll('.card').forEach(tilt);
 };
 renderProducts();
 document.querySelectorAll('.chip').forEach(c => c.addEventListener('click', () => {
@@ -84,14 +76,6 @@ const setMenu = o => { menu.classList.toggle('open', o); btn.setAttribute('aria-
 btn.addEventListener('click', () => setMenu(!menu.classList.contains('open')));
 menu.addEventListener('click', e => { if (e.target.tagName === 'A') setMenu(false); });
 
-// scroll progress
-const bar = document.querySelector('.progress');
-const onScroll = () => {
-  const h = document.documentElement;
-  bar.style.transform = `scaleX(${h.scrollTop / (h.scrollHeight - h.clientHeight || 1)})`;
-};
-addEventListener('scroll', onScroll, {passive: true}); onScroll();
-
 // reveal on scroll + count-up
 const count = el => {
   const end = +el.dataset.count, suf = el.dataset.suffix || '', t0 = performance.now();
@@ -108,20 +92,11 @@ const io = new IntersectionObserver(es => es.forEach(e => {
   e.target.querySelectorAll('[data-count]').forEach(count);
   io.unobserve(e.target);
 }), {threshold: .15});
-document.querySelectorAll('.reveal:not(.hero .reveal)').forEach(el => io.observe(el));
+document.querySelectorAll('.reveal:not(.in)').forEach(el => io.observe(el));
 
-const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
-if (still) document.querySelectorAll('[data-count]').forEach(el => el.textContent = el.dataset.count + (el.dataset.suffix || ''));
-else {
-  // magnetic buttons
-  document.querySelectorAll('.magnetic').forEach(b => {
-    b.addEventListener('mousemove', e => {
-      const r = b.getBoundingClientRect();
-      b.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * .25}px,${(e.clientY - r.top - r.height / 2) * .35}px)`;
-    });
-    b.addEventListener('mouseleave', () => b.style.transform = '');
-  });
-  // hero parallax
-  const art = document.querySelector('.hero-art');
-  if (art) addEventListener('scroll', () => { art.style.transform = `translateY(${scrollY * .12}px)`; }, {passive: true});
-}
+if (matchMedia('(prefers-reduced-motion: reduce)').matches) document.querySelectorAll('[data-count]').forEach(el => el.textContent = el.dataset.count + (el.dataset.suffix || ''));
+
+// hero product stack
+const art = document.getElementById('hero-art');
+if (art) art.innerHTML = PRODUCTS.filter(x => x.s > 0).slice(0, 3).map(x =>
+  `<div class="pk"><span class="initial">${esc(x.t[0])}</span><img src="${IMG}${x.i}&width=500" alt="" onerror="this.remove()"></div>`).join('');
