@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>طريقة سويس ووتر</title>
-<meta name="description" content="موشن جرافيك يشرح طريقة سويس ووتر لإزالة الكافيين من القهوة بالماء فقط">
+<title>Brewtiful | طريقة سويس ووتر</title>
+<meta name="description" content="موشن جرافيك يشرح طريقة سويس ووتر لإزالة الكافيين من القهوة بالماء فقط، وهي الطريقة المعتمدة في Brewtiful">
 <style>
 @font-face{font-family:Cairo;font-weight:500;src:url(fonts/Cairo-500.ttf) format('truetype')}
 @font-face{font-family:Cairo;font-weight:700;src:url(fonts/Cairo-700.ttf) format('truetype')}
@@ -19,6 +19,7 @@ svg *{transform-box:fill-box;transform-origin:center}
 .orb{position:absolute;border-radius:50%;background:var(--g400);filter:blur(80px);opacity:.25}
 .progress{position:absolute;top:0;inset-inline:0;height:10px;background:var(--w);transform-origin:right;transform:scaleX(0)}
 .brand{position:absolute;top:110px;inset-inline:0;text-align:center}
+.brand b{font-weight:900;color:var(--g200)}
 .brand span{display:inline-block;padding:10px 34px;border:3px solid rgba(255,255,255,.35);border-radius:999px;font-weight:700;font-size:34px;letter-spacing:.01em}
 .scene{position:absolute;inset:0;opacity:0}
 .step{position:absolute;top:250px;inset-inline:0;text-align:center}
@@ -33,6 +34,7 @@ svg *{transform-box:fill-box;transform-origin:center}
 /* نسخة الريل: إبعاد النصوص عن أزرار وواجهة إنستقرام */
 .reel .brand{top:180px}.reel .step{top:275px}.reel .title{top:368px;font-size:76px}
 .reel .stage{top:515px;height:715px}
+.reel .brew-t{top:330px!important}
 .reel .intro-t{top:1030px!important;font-size:86px}.reel .intro-s{top:1150px!important}.reel .outro-t{top:330px!important}
 .reel .caption{bottom:430px;left:60px;right:150px;padding:28px 36px 32px}.reel .cap{font-size:44px}
 </style>
@@ -42,7 +44,7 @@ svg *{transform-box:fill-box;transform-origin:center}
   <div class="orb" style="width:600px;height:600px;top:-120px;right:-200px"></div>
   <div class="orb" style="width:520px;height:520px;bottom:120px;left:-220px"></div>
   <div class="progress"></div>
-  <div class="brand"><span>قهوة منزوعة الكافيين</span></div>
+  <div class="brand"><span><b dir="ltr">Brewtiful</b> · قهوة منزوعة الكافيين</span></div>
 
   <svg width="0" height="0" style="position:absolute">
     <defs>
@@ -202,8 +204,33 @@ svg *{transform-box:fill-box;transform-origin:center}
     </svg>
   </section>
 
+  <!-- 9. Brewtiful -->
+  <section class="scene" data-s="57" data-e="65">
+    <div class="title brew-t" data-in="up" style="top:300px">وهذه طريقتنا في</div>
+    <svg class="stage" viewBox="0 0 1080 860" id="s9">
+      <g data-in="pop" data-t=".35">
+        <text x="540" y="140" text-anchor="middle" direction="ltr" style="direction:ltr" font-size="190" font-weight="900" fill="#fff">Brew<tspan fill="#a8dfbb">tiful</tspan></text>
+      </g>
+      <g class="sparks"></g>
+      <g transform="translate(0 -35) scale(.8)">
+      <g data-in="pop" data-t=".9">
+        <ellipse cx="540" cy="640" rx="230" ry="26" fill="#a8dfbb"/>
+        <path d="M710 400 C815 400 815 530 710 530" stroke="#fff" stroke-width="26" fill="none"/>
+        <path d="M370 350 H710 V480 A105 105 0 0 1 605 585 H475 A105 105 0 0 1 370 480Z" fill="#fff"/>
+        <ellipse cx="540" cy="350" rx="170" ry="22" fill="#16794a"/>
+        <g transform="translate(540 470) scale(1.25)"><use href="#bean" style="color:#3fae6e"/></g>
+      </g>
+      <g class="steam"></g>
+      </g>
+      <g data-in="up" data-t="1.6">
+        <rect x="100" y="610" width="880" height="100" rx="50" fill="#fff"/>
+        <text x="540" y="676" text-anchor="middle" font-size="44" font-weight="900" fill="#0b4d32">✓ منزوعة الكافيين بطريقة سويس ووتر</text>
+      </g>
+    </svg>
+  </section>
+
   <div class="caption">
-    <p class="cap" data-s="0" data-e="5.5">كيف يُزال الكافيين من القهوة… بالماء فقط وبدون أي مواد كيميائية؟</p>
+    <p class="cap" data-s="0" data-e="5.5">كيف نزيل الكافيين من قهوة Brewtiful… بالماء فقط وبدون أي مواد كيميائية؟</p>
     <p class="cap" data-s="5.5" data-e="11">نبدأ بحبوب القهوة الخضراء قبل تحميصها</p>
     <p class="cap" data-s="11" data-e="17">تُنقع الحبوب في ماء نقي ودافئ لتنظيفها وترطيبها</p>
     <p class="cap" data-s="17" data-e="23.5">نُحضّر ماءً مشبعًا بكل مركّبات القهوة الذائبة… ما عدا الكافيين</p>
@@ -212,11 +239,12 @@ svg *{transform-box:fill-box;transform-origin:center}
     <p class="cap" data-s="38.5" data-e="45">تتكرر الدورة لساعات حتى تصبح القهوة خالية من الكافيين بنسبة ٩٩٫٩٪</p>
     <p class="cap" data-s="45" data-e="51">تُجفف الحبوب ثم تُرسل للتحميص… بنفس الطعم وبدون كافيين</p>
     <p class="cap" data-s="51" data-e="57">ماء، وحرارة، ووقت… هذا كل سر طريقة سويس ووتر</p>
+    <p class="cap" data-s="57" data-e="65">هذه هي الطريقة التي نعتمدها في Brewtiful… بلا كافيين وبكامل النكهة</p>
   </div>
 </div>
 
 <script>
-const D = 57, EASE = 'cubic-bezier(.2,.8,.2,1)', NS = 'http://www.w3.org/2000/svg';
+const D = 65, EASE = 'cubic-bezier(.2,.8,.2,1)', NS = 'http://www.w3.org/2000/svg';
 const $ = (s, r = document) => r.querySelector(s);
 const ar = s => String(s).replace(/\d/g, d => '٠١٢٣٤٥٦٧٨٩'[d]).replace('.', '٫');
 let seed = 7; const rnd = (a, b) => a + (b - a) * ((seed = (seed * 9301 + 49297) % 233280) / 233280);
@@ -292,6 +320,12 @@ const s7 = $('#s7');
 [330, 540, 750].forEach((x, i) => el('path', { class: 'wave', d: `M${x} 230 c -25 -30 25 -50 0 -80 c -25 -30 25 -50 0 -80`, fill: 'none', stroke: '#a8dfbb', 'stroke-width': 8, 'stroke-linecap': 'round', 'data-t': i * .4 }, $('.waves', s7)));
 [480, 540, 600].forEach((x, i) => el('path', { class: 'smoke', d: `M${x} 490 c -22 -28 22 -46 0 -74 c -22 -28 22 -46 0 -74`, fill: 'none', stroke: '#fff', 'stroke-width': 9, 'stroke-linecap': 'round', 'data-t': 3 + i * .45 }, $('.steam', s7)));
 
+// 9: Brewtiful outro – steam + sparkles
+const s9 = $('#s9');
+[480, 540, 600].forEach((x, i) => el('path', { class: 'smoke', d: `M${x} 310 c -22 -28 22 -46 0 -74 c -22 -28 22 -46 0 -74`, fill: 'none', stroke: '#fff', 'stroke-width': 9, 'stroke-linecap': 'round', 'data-t': 1.6 + i * .45 }, $('.steam', s9)));
+[[150,330],[930,300],[220,560],[880,600],[300,230],[790,220]].forEach(([x, y], i) => { const g = el('g', { transform: `translate(${x} ${y})` }, $('.sparks', s9));
+  el('path', { class: 'spark', d: 'M0,-22 L6,-6 L22,0 L6,6 L0,22 L-6,6 L-22,0 L-6,-6Z', fill: i % 2 ? '#a8dfbb' : '#fff', 'data-t': .8 + i * .15 }, g); });
+
 /* ---------- timeline ---------- */
 anim($('.progress'), [{ transform: 'scaleX(0)' }, { transform: 'scaleX(1)' }], 0, D, { ease: 'linear' });
 document.querySelectorAll('.orb').forEach((o, i) => anim(o, [{ transform: 'translate(0,0) scale(1)' }, { transform: `translate(${i ? 80 : -80}px,60px) scale(1.2)` }], 0, 7, { iter: Infinity, dir: 'alternate', ease: 'ease-in-out' }));
@@ -332,6 +366,10 @@ anim(spin, [{ transform: 'rotate(0deg)' }, { transform: 'rotate(360deg)' }], 38.
 s7.querySelectorAll('.dry').forEach(b => anim(b.firstChild, [{ color: '#cdeed6' }, { color: '#ffffff' }], 45.6, 1.8));
 s7.querySelectorAll('.wave').forEach(w => anim(w, [{ transform: 'translateY(0)', opacity: 0 }, { opacity: .9, offset: .3 }, { transform: 'translateY(-60px)', opacity: 0 }], 45.3 + +w.dataset.t, 1.6, { iter: Infinity, ease: 'ease-out' }));
 s7.querySelectorAll('.smoke').forEach(w => anim(w, [{ transform: 'translateY(0)', opacity: 0 }, { opacity: .8, offset: .3 }, { transform: 'translateY(-70px)', opacity: 0 }], 45 + +w.dataset.t, 1.8, { iter: Infinity, ease: 'ease-out' }));
+
+// scene 9
+s9.querySelectorAll('.smoke').forEach(w => anim(w, [{ transform: 'translateY(0)', opacity: 0 }, { opacity: .8, offset: .3 }, { transform: 'translateY(-70px)', opacity: 0 }], 57 + +w.dataset.t, 1.8, { iter: Infinity, ease: 'ease-out' }));
+s9.querySelectorAll('.spark').forEach(w => anim(w, [{ transform: 'scale(0) rotate(0deg)', opacity: 0 }, { transform: 'scale(1) rotate(45deg)', opacity: 1, offset: .5 }, { transform: 'scale(0) rotate(90deg)', opacity: 0 }], 57 + +w.dataset.t, 1.6, { iter: Infinity, ease: 'ease-in-out' }));
 
 /* ---------- clock ---------- */
 const counter = $('#counter');
