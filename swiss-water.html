@@ -4,45 +4,49 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Brewtiful | طريقة سويس ووتر</title>
-<meta name="description" content="موشن جرافيك يشرح طريقة سويس ووتر لإزالة الكافيين من القهوة بالماء فقط، وهي الطريقة المعتمدة في Brewtiful">
+<meta name="description" content="إنفوقرافيك متحرك يشرح طريقة سويس ووتر لإزالة الكافيين بالماء فقط، وهي الطريقة المعتمدة في Brewtiful">
 <style>
 @font-face{font-family:Cairo;font-weight:500;src:url(fonts/Cairo-500.ttf) format('truetype')}
 @font-face{font-family:Cairo;font-weight:700;src:url(fonts/Cairo-700.ttf) format('truetype')}
 @font-face{font-family:Cairo;font-weight:900;src:url(fonts/Cairo-900.ttf) format('truetype')}
-:root{--g900:#06301f;--g800:#0b4d32;--g600:#16794a;--g400:#3fae6e;--g200:#a8dfbb;--g100:#e3f5e9;--w:#fff}
+:root{--g900:#06301f;--g800:#0b4d32;--g600:#16794a;--g400:#3fae6e;--g200:#a8dfbb;--g100:#e3f5e9}
 *{box-sizing:border-box;margin:0}
 html,body{height:100%;background:#eef6f1;overflow:hidden}
-body{display:grid;place-items:center;font-family:Cairo,sans-serif;color:var(--w)}
+body{display:grid;place-items:center;font-family:Cairo,sans-serif;color:var(--g800)}
 #frame{position:relative;width:1080px;height:1920px;flex:none;overflow:hidden;transform-origin:center;
-  background:radial-gradient(#d6efdf 2.5px,transparent 3px) 0 0/44px 44px,radial-gradient(120% 70% at 50% 35%,#fff 0%,#fbfefc 55%,#eef8f2 100%);color:var(--g800)}
+  background:radial-gradient(#dcf1e4 2.5px,transparent 3px) 0 0/44px 44px,#fff}
 svg *{transform-box:fill-box;transform-origin:center}
-.orb{position:absolute;border-radius:50%;background:var(--g200);filter:blur(90px);opacity:.45}
-.progress{position:absolute;top:0;inset-inline:0;height:12px;background:linear-gradient(270deg,var(--g400),var(--g600));transform-origin:right;transform:scaleX(0)}
-.brand{position:absolute;top:110px;inset-inline:0;text-align:center}
+svg text{font-family:Cairo,sans-serif}
+#cv{position:absolute;z-index:1;top:0;left:0;width:1080px;height:4580px;transform-origin:540px 0}
+#cv>svg{position:absolute;inset:0;overflow:visible}
+.lbl{position:absolute;text-align:right}
+.lbl b{display:inline-grid;place-items:center;width:72px;height:72px;border-radius:50%;background:var(--g600);color:#fff;font-size:40px;font-weight:900;box-shadow:0 10px 24px rgba(22,121,74,.28)}
+.lbl h3{font-size:60px;white-space:nowrap;font-weight:900;line-height:1.2;margin-top:14px}
+.lbl p{font-size:42px;font-weight:700;color:var(--g400);line-height:1.3}
+.count{position:absolute;left:0;right:0;text-align:center}
+.count strong{display:block;font-size:150px;font-weight:900;line-height:1.1}
+.count span{font-size:44px;font-weight:700;color:var(--g400)}
+.count i{display:inline-block;margin-top:18px;font-style:normal;font-size:36px;font-weight:900;color:#fff;background:var(--g600);padding:6px 30px;border-radius:999px}
+.end{position:absolute;left:0;right:0;text-align:center}
+.end h2{font-size:200px;font-weight:900;line-height:1;direction:ltr}.end h2 em{font-style:normal;color:var(--g400)}
+.end p{font-size:46px;font-weight:700;margin-top:18px}
+.chips{display:flex;justify-content:center;gap:20px;margin-top:26px}
+.chips span{background:var(--g600);color:#fff;font-size:40px;font-weight:900;padding:10px 34px;border-radius:999px}
+.topfade{position:absolute;top:0;left:0;right:0;height:250px;background:linear-gradient(#fff 55%,rgba(255,255,255,0));z-index:2}
+.brand{position:absolute;top:90px;inset-inline:0;text-align:center;z-index:3}
+.brand span{display:inline-block;padding:10px 34px;border:3px solid var(--g200);background:#fff;border-radius:999px;font-weight:700;font-size:34px;box-shadow:0 10px 30px rgba(11,77,50,.08)}
 .brand b{font-weight:900;color:var(--g400)}
-.brand span{display:inline-block;padding:10px 34px;border:3px solid var(--g200);background:#fff;color:var(--g800);border-radius:999px;font-weight:700;font-size:34px;letter-spacing:.01em;box-shadow:0 10px 30px rgba(11,77,50,.08)}
-.scene{position:absolute;inset:0;opacity:0}
-.step{position:absolute;top:250px;inset-inline:0;text-align:center}
-.step span{display:inline-block;background:var(--g600);color:var(--w);box-shadow:0 10px 24px rgba(22,121,74,.25);font-weight:900;font-size:36px;padding:6px 32px;border-radius:999px}
-.title{position:absolute;top:330px;inset-inline:60px;text-align:center;font-weight:900;font-size:86px;line-height:1.25;color:var(--g800)}
-.sub{position:absolute;top:450px;inset-inline:60px;text-align:center;font-weight:700;font-size:44px;color:var(--g400)}
-.stage{position:absolute;top:540px;left:0;width:1080px;height:860px;overflow:visible}
-.stage text{font-family:Cairo,sans-serif;direction:rtl;unicode-bidi:embed}
-.caption{position:absolute;bottom:190px;left:70px;right:70px;display:grid;background:var(--g100);border-radius:34px;
-  padding:26px 40px 30px;box-shadow:0 20px 50px rgba(11,77,50,.10);border:2px solid var(--g200);border-inline-start:14px solid var(--g400)}
-.cap{grid-area:1/1;align-self:center;text-align:center;color:var(--g800);font-weight:700;font-size:44px;line-height:1.55;opacity:0}
-/* نسخة الريل: إبعاد النصوص عن أزرار وواجهة إنستقرام */
-.reel .brand{top:180px}.reel .step{top:275px}.reel .title{top:368px;font-size:76px}
-.reel .stage{top:515px;height:715px}
-.reel .brew-t{top:330px!important}
-.reel .intro-t{top:1030px!important;font-size:86px}.reel .intro-s{top:1150px!important}.reel .outro-t{top:330px!important}
-.reel .caption{bottom:400px;left:60px;right:150px;padding:22px 32px 26px}.reel .cap{font-size:40px}
+.progress{position:absolute;top:0;inset-inline:0;height:12px;background:linear-gradient(270deg,var(--g400),var(--g600));transform-origin:right;transform:scaleX(0);z-index:3}
+.intro{position:absolute;inset:0;display:grid;place-content:center;text-align:center;gap:10px}
+.intro h1{font-size:104px;font-weight:900;line-height:1.25}
+.intro p{font-size:60px;font-weight:700;color:var(--g400)}
+.intro svg{width:300px;height:300px;margin:0 auto 30px;overflow:visible}
+.reel .brand{top:170px}.reel .topfade{height:330px}
 </style>
 </head>
 <body>
 <div id="frame">
-  <div class="orb" style="width:600px;height:600px;top:-120px;right:-200px"></div>
-  <div class="orb" style="width:520px;height:520px;bottom:120px;left:-220px"></div>
+  <div class="topfade"></div>
   <div class="progress"></div>
   <div class="brand"><span><b dir="ltr">Brewtiful</b> · قهوة منزوعة الكافيين</span></div>
 
@@ -50,210 +54,103 @@ svg *{transform-box:fill-box;transform-origin:center}
     <defs>
       <g id="bean">
         <ellipse rx="26" ry="36" fill="currentColor"/>
-        <path d="M3,-31 C-13,-12 14,10 -3,31" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".85"/>
+        <path d="M3,-31 C-13,-12 14,10 -3,31" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".9"/>
       </g>
       <path id="hex" d="M0,-16 L14,-8 L14,8 L0,16 L-14,8 L-14,-8Z"/>
-      <clipPath id="tankA"><rect x="290" y="150" width="500" height="580" rx="40"/></clipPath>
-      <clipPath id="tankB"><rect x="290" y="150" width="500" height="580" rx="40"/></clipPath>
-      <clipPath id="tankC"><rect x="190" y="110" width="700" height="650" rx="50"/></clipPath>
-      <clipPath id="tankD"><rect x="90" y="160" width="380" height="520" rx="36"/></clipPath>
+      <clipPath id="clB"><rect x="560" y="1060" width="400" height="400" rx="40"/></clipPath>
+      <clipPath id="clC"><rect x="110" y="1820" width="380" height="460" rx="40"/></clipPath>
+      <clipPath id="clF"><rect x="640" y="1820" width="320" height="460" rx="36"/></clipPath>
+      <clipPath id="clD"><circle cx="380" cy="3410" r="146"/></clipPath>
     </defs>
   </svg>
 
-  <!-- 0. المقدمة -->
-  <section class="scene" data-s="0" data-e="5.5">
-    <svg class="stage" viewBox="0 0 1080 860">
-      <circle data-in="draw" data-t=".1" cx="540" cy="330" r="270" fill="none" stroke="#0b4d32" stroke-width="10" stroke-dasharray="1700" stroke-dashoffset="1700" stroke-linecap="round"/>
-      <g data-in="pop" data-t=".5"><path d="M540 110 C540 110 390 300 390 400 A150 150 0 0 0 690 400 C690 300 540 110 540 110Z" fill="#a8dfbb"/></g>
-      <g transform="translate(540 395) scale(2.2)"><use href="#bean" data-in="pop" data-t="1" style="color:#16794a"/></g>
+  <!-- ===== اللوحة المتحركة ===== -->
+  <div id="cv">
+    <svg viewBox="0 0 1080 4580" width="1080" height="4580">
+      <g id="pipes"></g>
+
+      <!-- ١ قمع الحبوب الخضراء -->
+      <g id="nA">
+        <path d="M120 340 H480 L340 640 H260Z" fill="#e3f5e9" stroke="#0b4d32" stroke-width="9" stroke-linejoin="round"/>
+        <rect x="270" y="636" width="60" height="50" rx="8" fill="#0b4d32"/>
+        <g class="pile"></g>
+      </g>
+
+      <!-- ٢ خزان النقع -->
+      <g id="nB">
+        <g clip-path="url(#clB)">
+          <rect class="water" x="560" y="1060" width="400" height="400" fill="#a8dfbb" opacity=".6"/>
+          <g class="beans"></g><g class="bubbles"></g>
+        </g>
+        <rect x="560" y="1060" width="400" height="400" rx="40" fill="none" stroke="#0b4d32" stroke-width="9"/>
+      </g>
+
+      <!-- ٣ خزان المستخلص + ٤ فلتر الكربون -->
+      <g id="nC">
+        <g clip-path="url(#clC)">
+          <rect class="water" x="110" y="1820" width="380" height="460" fill="#3fae6e" opacity=".55"/>
+          <g class="hexes"></g><g class="beans"></g><g class="dots"></g>
+        </g>
+        <rect x="110" y="1820" width="380" height="460" rx="40" fill="none" stroke="#0b4d32" stroke-width="9"/>
+        <rect x="640" y="1820" width="320" height="460" rx="36" fill="#0b4d32"/>
+        <g clip-path="url(#clF)"><g class="carbon"></g><g class="caught"></g></g>
+      </g>
+
+      <!-- ٥ التحميص -->
+      <g id="nD">
+        <g class="heat"></g>
+        <circle cx="380" cy="3410" r="150" fill="#f3fbf6" stroke="#0b4d32" stroke-width="10"/>
+        <g clip-path="url(#clD)"><g class="drum"></g></g>
+        <circle cx="380" cy="3410" r="18" fill="#0b4d32"/>
+      </g>
+
+      <!-- ٦ الكوب -->
+      <g id="nE">
+        <g class="cup">
+          <ellipse cx="540" cy="4160" rx="230" ry="26" fill="#a8dfbb"/>
+          <path d="M710 3930 C815 3930 815 4060 710 4060" stroke="#16794a" stroke-width="26" fill="none"/>
+          <path d="M370 3880 H710 V4010 A105 105 0 0 1 605 4115 H475 A105 105 0 0 1 370 4010Z" fill="#16794a"/>
+          <ellipse cx="540" cy="3880" rx="170" ry="22" fill="#0b4d32"/>
+          <g transform="translate(540 4002) scale(1.25)"><use href="#bean" style="color:#a8dfbb"/></g>
+        </g>
+        <g class="steam"></g>
+      </g>
+      <g id="movers"></g>
     </svg>
-    <div class="title intro-t" style="top:1180px" data-in="up" data-t="1.3">طريقة سويس ووتر</div>
-    <div class="sub intro-s" style="top:1300px" data-in="up" data-t="1.6">لإزالة الكافيين من القهوة</div>
-  </section>
 
-  <!-- 1. الحبوب الخضراء -->
-  <section class="scene" data-s="5.5" data-e="11">
-    <div class="step" data-in="up"><span>الخطوة ١</span></div>
-    <div class="title" data-in="up" data-t=".15">الحبوب الخضراء</div>
-    <svg class="stage" viewBox="0 0 1080 860" id="s1"></svg>
-  </section>
+    <div class="lbl" id="lA" style="left:580px;top:400px;width:430px"><b>١</b><h3>حبوب خضراء</h3><p>قبل التحميص</p></div>
+    <div class="lbl" id="lB" style="left:80px;top:1130px;width:440px"><b>٢</b><h3>نقع بالماء</h3><p>ماء نقي ودافئ</p></div>
+    <div class="lbl" id="lC" style="left:110px;top:2400px;width:400px"><b>٣</b><h3>مستخلص أخضر</h3><p>نكهة بلا كافيين</p></div>
+    <div class="lbl" id="lF" style="left:620px;top:2400px;width:360px"><b>٤</b><h3>فلتر كربون</h3><p>يلتقط الكافيين</p></div>
+    <div class="count" id="cnt" style="top:2700px"><strong id="num">٠٪</strong><span>خالية من الكافيين</span><br><i>الدورة تتكرر ~١٠ ساعات</i></div>
+    <div class="lbl" id="lD" style="left:590px;top:3290px;width:420px"><b>٥</b><h3>تجفيف وتحميص</h3><p>بنفس النكهة</p></div>
+    <div class="end" id="end" style="top:4210px"><h2>Brew<em>tiful</em></h2><p>قهوتنا منزوعة الكافيين بطريقة سويس ووتر</p>
+      <div class="chips"><span>١٠٠٪ ماء</span><span>بدون كيميائيات</span></div></div>
+  </div>
 
-  <!-- 2. التنقيع -->
-  <section class="scene" data-s="11" data-e="17">
-    <div class="step" data-in="up"><span>الخطوة ٢</span></div>
-    <div class="title" data-in="up" data-t=".15">التنقيع بالماء</div>
-    <svg class="stage" viewBox="0 0 1080 860" id="s2">
-      <rect x="490" y="40" width="100" height="40" rx="14" fill="#0b4d32"/>
-      <rect x="525" y="20" width="30" height="30" rx="6" fill="#0b4d32"/>
-      <rect class="stream" x="527" y="80" width="26" height="400" fill="#a8dfbb" opacity=".9"/>
-      <g clip-path="url(#tankA)">
-        <rect class="water" x="290" y="150" width="500" height="580" fill="#a8dfbb" opacity=".5"/>
-        <g class="beans"></g>
-        <g class="bubbles"></g>
-      </g>
-      <rect x="290" y="150" width="500" height="580" rx="40" fill="none" stroke="#0b4d32" stroke-width="9"/>
+  <!-- ===== المقدمة ===== -->
+  <div class="intro" id="intro">
+    <svg viewBox="-150 -150 300 300">
+      <circle r="140" fill="none" stroke="#0b4d32" stroke-width="8" stroke-dasharray="880" stroke-dashoffset="880" id="ring"/>
+      <path id="drop" d="M0 -110 C0 -110 -80 -10 -80 40 A80 80 0 0 0 80 40 C80 -10 0 -110 0 -110Z" fill="#a8dfbb"/>
+      <g transform="translate(0 38) scale(1.2)"><use id="ibean" href="#bean" style="color:#16794a"/></g>
     </svg>
-  </section>
-
-  <!-- 3. مستخلص القهوة الخضراء -->
-  <section class="scene" data-s="17" data-e="23.5">
-    <div class="step" data-in="up"><span>الخطوة ٣</span></div>
-    <div class="title" data-in="up" data-t=".15" style="font-size:78px">مستخلص القهوة الخضراء</div>
-    <svg class="stage" viewBox="0 0 1080 860" id="s3">
-      <g clip-path="url(#tankB)">
-        <rect class="water" x="290" y="150" width="500" height="580" fill="#3fae6e" opacity=".9"/>
-        <g class="hexes"></g>
-      </g>
-      <rect x="290" y="150" width="500" height="580" rx="40" fill="none" stroke="#0b4d32" stroke-width="9"/>
-      <g data-in="pop" data-t="1.6">
-        <rect x="565" y="770" width="260" height="76" rx="38" fill="#16794a"/>
-        <text x="695" y="822" text-anchor="middle" font-size="40" font-weight="900" fill="#fff">نكهات ✓</text>
-      </g>
-      <g data-in="pop" data-t="2">
-        <rect x="255" y="770" width="260" height="76" rx="38" fill="none" stroke="#0b4d32" stroke-width="5"/>
-        <text x="385" y="822" text-anchor="middle" font-size="40" font-weight="900" fill="#0b4d32">كافيين ✗</text>
-      </g>
-    </svg>
-  </section>
-
-  <!-- 4. خروج الكافيين -->
-  <section class="scene" data-s="23.5" data-e="31">
-    <div class="step" data-in="up"><span>الخطوة ٤</span></div>
-    <div class="title" data-in="up" data-t=".15">خروج الكافيين</div>
-    <svg class="stage" viewBox="0 0 1080 860" id="s4">
-      <g clip-path="url(#tankC)">
-        <rect x="190" y="110" width="700" height="650" fill="#3fae6e" opacity=".55"/>
-        <g class="hexes"></g>
-        <g class="beans"></g>
-        <g class="dots"></g>
-      </g>
-      <rect x="190" y="110" width="700" height="650" rx="50" fill="none" stroke="#0b4d32" stroke-width="9"/>
-      <g data-in="up" data-t="1">
-        <circle cx="620" cy="814" r="14" fill="#fff" stroke="#0b4d32" stroke-width="4"/>
-        <text x="510" y="828" font-size="40" font-weight="700" fill="#0b4d32" text-anchor="middle">الكافيين</text>
-      </g>
-    </svg>
-  </section>
-
-  <!-- 5. فلاتر الكربون -->
-  <section class="scene" data-s="31" data-e="38.5">
-    <div class="step" data-in="up"><span>الخطوة ٥</span></div>
-    <div class="title" data-in="up" data-t=".15">فلاتر الكربون</div>
-    <svg class="stage" viewBox="0 0 1080 860" id="s5">
-      <path d="M460 260 H650" stroke="#0b4d32" stroke-width="34" stroke-linecap="round"/>
-      <path d="M460 260 H650" stroke="#e3f5e9" stroke-width="18"/>
-      <path d="M650 620 H460" stroke="#0b4d32" stroke-width="34" stroke-linecap="round"/>
-      <path class="flow" d="M650 620 H460" stroke="#3fae6e" stroke-width="14" stroke-dasharray="22 18"/>
-      <g clip-path="url(#tankD)">
-        <rect x="90" y="160" width="380" height="520" fill="#3fae6e" opacity=".6"/>
-      </g>
-      <rect x="90" y="160" width="380" height="520" rx="36" fill="none" stroke="#0b4d32" stroke-width="9"/>
-      <rect x="650" y="120" width="300" height="600" rx="30" fill="#0b4d32" stroke="#0b4d32" stroke-width="9"/>
-      <g class="carbon"></g>
-      <text x="800" y="90" text-anchor="middle" font-size="40" font-weight="900" fill="#0b4d32">فلتر كربون</text>
-      <text x="555" y="700" text-anchor="middle" font-size="32" font-weight="700" fill="#16794a">يعود نظيفًا</text>
-      <g class="dots"></g>
-    </svg>
-  </section>
-
-  <!-- 6. تكرار الدورة -->
-  <section class="scene" data-s="38.5" data-e="45">
-    <div class="step" data-in="up"><span>الخطوة ٦</span></div>
-    <div class="title" data-in="up" data-t=".15">تكرار الدورة</div>
-    <svg class="stage" viewBox="0 0 1080 860" id="s6">
-      <g transform="translate(540 400)"><g class="spin"></g></g>
-      <text id="counter" x="540" y="430" text-anchor="middle" font-size="150" font-weight="900" fill="#0b4d32">٠٪</text>
-      <text x="540" y="510" text-anchor="middle" font-size="44" font-weight="700" fill="#3fae6e">خالية من الكافيين</text>
-      <g data-in="pop" data-t=".6">
-        <rect x="370" y="0" width="340" height="66" rx="33" fill="#16794a"/>
-        <text x="540" y="45" text-anchor="middle" font-size="34" font-weight="900" fill="#fff">حوالي ١٠ ساعات</text>
-      </g>
-    </svg>
-  </section>
-
-  <!-- 7. التجفيف والتحميص -->
-  <section class="scene" data-s="45" data-e="51">
-    <div class="step" data-in="up"><span>الخطوة ٧</span></div>
-    <div class="title" data-in="up" data-t=".15">التجفيف والتحميص</div>
-    <svg class="stage" viewBox="0 0 1080 860" id="s7">
-      <g class="waves"></g>
-      <g class="beans"></g>
-      <path d="M200 300 H880" stroke="#0b4d32" stroke-width="12" stroke-linecap="round"/>
-      <g data-in="up" data-t="2.3"><path d="M540 360 V440 M505 410 L540 445 L575 410" stroke="#3fae6e" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
-      <g data-in="pop" data-t="2.7">
-        <ellipse cx="540" cy="790" rx="240" ry="28" fill="#a8dfbb"/>
-        <path d="M720 580 C830 580 830 720 720 720" stroke="#0b4d32" stroke-width="26" fill="none"/>
-        <path d="M360 530 H720 V660 A110 110 0 0 1 610 770 H470 A110 110 0 0 1 360 660Z" fill="#16794a"/>
-        <ellipse cx="540" cy="530" rx="180" ry="24" fill="#0b4d32"/>
-        <g transform="translate(540 650) scale(1.3)"><use href="#bean" style="color:#a8dfbb"/></g>
-      </g>
-      <g class="steam"></g>
-    </svg>
-  </section>
-
-  <!-- 8. الخاتمة -->
-  <section class="scene" data-s="51" data-e="57">
-    <div class="title outro-t" data-in="up" style="top:300px">قهوة بلا كافيين<br>بنكهتها الكاملة</div>
-    <svg class="stage" viewBox="0 0 1080 860" id="s8">
-      <g data-in="right" data-t=".5"><rect x="190" y="220" width="700" height="110" rx="55" fill="#16794a"/>
-        <text x="540" y="295" text-anchor="middle" font-size="54" font-weight="900" fill="#fff">١٠٠٪ ماء</text></g>
-      <g data-in="right" data-t=".8"><rect x="190" y="370" width="700" height="110" rx="55" fill="#16794a"/>
-        <text x="540" y="445" text-anchor="middle" font-size="54" font-weight="900" fill="#fff">بدون مواد كيميائية</text></g>
-      <g data-in="right" data-t="1.1"><rect x="190" y="520" width="700" height="110" rx="55" fill="#16794a"/>
-        <text x="540" y="595" text-anchor="middle" font-size="54" font-weight="900" fill="#fff">٩٩٫٩٪ خالية من الكافيين</text></g>
-    </svg>
-  </section>
-
-  <!-- 9. Brewtiful -->
-  <section class="scene" data-s="57" data-e="65">
-    <div class="title brew-t" data-in="up" style="top:300px">وهذه طريقتنا في</div>
-    <svg class="stage" viewBox="0 0 1080 860" id="s9">
-      <g data-in="pop" data-t=".35">
-        <text x="540" y="140" text-anchor="middle" direction="ltr" style="direction:ltr" font-size="190" font-weight="900" fill="#0b4d32">Brew<tspan fill="#3fae6e">tiful</tspan></text>
-      </g>
-      <g class="sparks"></g>
-      <g transform="translate(0 -35) scale(.8)">
-      <g data-in="pop" data-t=".9">
-        <ellipse cx="540" cy="640" rx="230" ry="26" fill="#a8dfbb"/>
-        <path d="M710 400 C815 400 815 530 710 530" stroke="#0b4d32" stroke-width="26" fill="none"/>
-        <path d="M370 350 H710 V480 A105 105 0 0 1 605 585 H475 A105 105 0 0 1 370 480Z" fill="#16794a"/>
-        <ellipse cx="540" cy="350" rx="170" ry="22" fill="#0b4d32"/>
-        <g transform="translate(540 470) scale(1.25)"><use href="#bean" style="color:#a8dfbb"/></g>
-      </g>
-      <g class="steam"></g>
-      </g>
-      <g data-in="up" data-t="1.6">
-        <rect x="100" y="610" width="880" height="100" rx="50" fill="#16794a"/>
-        <text x="540" y="676" text-anchor="middle" font-size="44" font-weight="900" fill="#fff">✓ منزوعة الكافيين بطريقة سويس ووتر</text>
-      </g>
-    </svg>
-  </section>
-
-  <div class="caption">
-    <p class="cap" data-s="0" data-e="5.5">كيف نزيل الكافيين من قهوة Brewtiful… بالماء فقط وبدون أي مواد كيميائية؟</p>
-    <p class="cap" data-s="5.5" data-e="11">نبدأ بحبوب القهوة الخضراء قبل تحميصها</p>
-    <p class="cap" data-s="11" data-e="17">تُنقع الحبوب في ماء نقي ودافئ لتنظيفها وترطيبها</p>
-    <p class="cap" data-s="17" data-e="23.5">نُحضّر ماءً مشبعًا بكل مركّبات القهوة الذائبة… ما عدا الكافيين</p>
-    <p class="cap" data-s="23.5" data-e="31">لأن الماء مشبع بالنكهات، يخرج الكافيين وحده من الحبة وتبقى النكهة بداخلها</p>
-    <p class="cap" data-s="31" data-e="38.5">تلتقط فلاتر الكربون الكافيين، ويعود المستخلص نظيفًا ليُستخدم من جديد</p>
-    <p class="cap" data-s="38.5" data-e="45">تتكرر الدورة لساعات حتى تصبح القهوة خالية من الكافيين بنسبة ٩٩٫٩٪</p>
-    <p class="cap" data-s="45" data-e="51">تُجفف الحبوب ثم تُرسل للتحميص… بنفس الطعم وبدون كافيين</p>
-    <p class="cap" data-s="51" data-e="57">ماء، وحرارة، ووقت… هذا كل سر طريقة سويس ووتر</p>
-    <p class="cap" data-s="57" data-e="65">هذه هي الطريقة التي نعتمدها في Brewtiful… بلا كافيين وبكامل النكهة</p>
+    <h1 id="t1">كيف نزيل الكافيين؟</h1>
+    <p id="t2">بالماء فقط… بدون أي كيميائيات</p>
   </div>
 </div>
 
 <script>
-const D = 65, EASE = 'cubic-bezier(.2,.8,.2,1)', NS = 'http://www.w3.org/2000/svg';
-const $ = (s, r = document) => r.querySelector(s);
+const D = 37, NS = 'http://www.w3.org/2000/svg', EASE = 'cubic-bezier(.2,.8,.2,1)', CAM = 'cubic-bezier(.65,0,.35,1)';
+const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
 const ar = s => String(s).replace(/\d/g, d => '٠١٢٣٤٥٦٧٨٩'[d]).replace('.', '٫');
-let seed = 7; const rnd = (a, b) => a + (b - a) * ((seed = (seed * 9301 + 49297) % 233280) / 233280);
+let seed = 11; const rnd = (a, b) => a + (b - a) * ((seed = (seed * 9301 + 49297) % 233280) / 233280);
+const REEL = /reel/.test(location.search);
+if (REEL) $('#frame').classList.add('reel');
 
-function el(tag, attrs, parent) {
-  const e = document.createElementNS(NS, tag);
-  for (const k in attrs) e.setAttribute(k, attrs[k]);
-  parent && parent.appendChild(e);
-  return e;
+function el(tag, attrs, parent) { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); parent && parent.appendChild(e); return e; }
+function anim(e, kf, start, dur, o = {}) {
+  return e.animate(kf, { delay: start * 1000, duration: dur * 1000, fill: o.fill || 'both', easing: o.ease || EASE, iterations: o.iter || 1, direction: o.dir || 'normal' });
 }
 function bean(parent, x, y, r = 0, s = 1, color = '#3fae6e') {
   const g = el('g', { transform: `translate(${x} ${y}) rotate(${r}) scale(${s})` }, parent);
@@ -261,127 +158,127 @@ function bean(parent, x, y, r = 0, s = 1, color = '#3fae6e') {
   el('use', { href: '#bean', style: `color:${color}` }, inner);
   return inner;
 }
-function anim(e, kf, start, dur, o = {}) {
-  return e.animate(kf, { delay: start * 1000, duration: dur * 1000, fill: o.fill || 'both', easing: o.ease || EASE, iterations: o.iter || 1, direction: o.dir || 'normal' });
+const pop = (e, t, d = .7) => anim(e, [{ opacity: 0, transform: 'scale(.3)' }, { opacity: 1, transform: 'scale(1)' }], t, d);
+const rise = (e, t, d = .8) => anim(e, [{ opacity: 0, transform: 'translateY(50px)' }, { opacity: 1, transform: 'none' }], t, d);
+const bob = (e, t) => anim(e, [{ transform: 'translateY(-8px)' }, { transform: 'translateY(8px)' }], t, 1.4, { iter: Infinity, dir: 'alternate', ease: 'ease-in-out' });
+
+// move an element along an SVG path (sampled keyframes)
+function along(e, d, start, dur, o = {}) {
+  const p = el('path', { d }, null), L = (document.body.appendChild(svgTmp), svgTmp.appendChild(p), p.getTotalLength()), N = 40, kf = [];
+  for (let i = 0; i <= N; i++) { const q = p.getPointAtLength(L * i / N); kf.push({ transform: `translate(${q.x}px,${q.y}px)`, opacity: 1 }); }
+  if (o.end) kf.push({ transform: `translate(${o.end[0]}px,${o.end[1]}px)`, opacity: 1 });
+  kf[0].opacity = 0; if (!o.keep) kf[kf.length - 1].opacity = 0;
+  p.remove(); return anim(e, kf, start, dur, { ease: o.ease || 'ease-in-out', iter: o.iter });
 }
-function span(e, s, en, f = .5) {
-  const k = t => Math.min(1, Math.max(0, t / D));
-  anim(e, [{ opacity: 0, offset: 0 }, { opacity: 0, offset: k(s) }, { opacity: 1, offset: k(s + f) },
-           { opacity: 1, offset: k(en - f) }, { opacity: 0, offset: k(en) }, { opacity: 0, offset: 1 }], 0, D, { ease: 'linear' });
-}
-const IN = {
-  up:    [{ opacity: 0, transform: 'translateY(50px)' }, { opacity: 1, transform: 'none' }],
-  right: [{ opacity: 0, transform: 'translateX(-120px)' }, { opacity: 1, transform: 'none' }],
-  pop:   [{ opacity: 0, transform: 'scale(.3)' }, { opacity: 1, transform: 'scale(1)' }],
-  draw:  [{ strokeDashoffset: 1700 }, { strokeDashoffset: 0 }],
+const svgTmp = el('svg', { width: 0, height: 0, style: 'position:absolute' });
+
+/* ---------- pipes (revealed with a mask, liquid dashes flow inside) ---------- */
+const P = {
+  s1: 'M300 690 V860 Q300 940 380 940 H680 Q760 940 760 1020 V1060',
+  s2: 'M760 1460 V1580 Q760 1660 680 1660 H380 Q300 1660 300 1740 V1820',
+  lt: 'M440 1820 V1790 Q440 1740 490 1740 H650 Q700 1740 700 1790 V1820',
+  lb: 'M700 2280 V2310 Q700 2360 650 2360 H490 Q440 2360 440 2310 V2280',
+  s3: 'M110 2240 H90 Q60 2240 60 2270 V3380 Q60 3410 90 3410 H230',
+  s4: 'M380 3560 V3660 Q380 3730 450 3730 H470 Q540 3730 540 3800 V3858',
 };
+const defs = $('defs');
+function pipe(key, t0, dur, flowColor = '#3fae6e') {
+  const id = 'm' + key, m = el('mask', { id, maskUnits: 'userSpaceOnUse', x: 0, y: 0, width: 1080, height: 4580 }, defs);
+  const mp = el('path', { d: P[key], fill: 'none', stroke: '#fff', 'stroke-width': 50, 'stroke-linecap': 'round', pathLength: 1, 'stroke-dasharray': '1 1', 'stroke-dashoffset': 1 }, m);
+  const g = el('g', { mask: `url(#${id})` }, $('#pipes'));
+  el('path', { d: P[key], fill: 'none', stroke: '#0b4d32', 'stroke-width': 34, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, g);
+  el('path', { d: P[key], fill: 'none', stroke: '#e3f5e9', 'stroke-width': 18, 'stroke-linecap': 'round' }, g);
+  const f = el('path', { d: P[key], fill: 'none', stroke: flowColor, 'stroke-width': 8, 'stroke-dasharray': '16 22', 'stroke-linecap': 'round' }, g);
+  anim(mp, [{ strokeDashoffset: 1 }, { strokeDashoffset: 0 }], t0, dur, { ease: 'ease-in-out' });
+  anim(f, [{ strokeDashoffset: 0 }, { strokeDashoffset: -76 }], 0, .7, { iter: Infinity, ease: 'linear' });
+}
+pipe('s1', 6.4, 1.6); pipe('s2', 12, 1.3); pipe('lt', 15, .8, '#ffffff'); pipe('lb', 15.6, .8);
+pipe('s3', 21.6, 1.4); pipe('s4', 26.6, 1);
 
-/* ---------- build scenes ---------- */
-// 1: beans pop in
-[[540,420,0,2.6],[330,290,-30,2],[760,280,25,2.1],[290,560,20,1.9],[800,570,-20,2],[460,680,60,1.6],[650,140,-50,1.5],[640,700,-70,1.5]]
-  .forEach(([x,y,r,s], i) => { const b = bean($('#s1'), x, y, r, s); b.dataset.in = 'pop'; b.dataset.t = .4 + i * .12; b.dataset.bob = 1; });
+/* ---------- 1: hopper ---------- */
+const pile = $('.pile');
+[[200,420,-30],[270,400,20],[350,410,-10],[410,420,40],[240,480,60],[310,470,-40],[370,480,10],[290,540,80],[330,560,-20]]
+  .forEach(([x, y, r], i) => pop(bean(pile, x, y, r, .9), 2.6 + i * .07, .5));
+for (let i = 0; i < 6; i++) { const g = el('g', {}, $('#movers')); el('use', { href: '#bean', style: 'color:#3fae6e', transform: 'scale(.45)' }, g);
+  along(g, P.s1, 6.6 + i * .3, 1.7); }
 
-// 2: soaking
-const s2 = $('#s2');
-[[400,670,80],[520,690,100],[640,665,70],[700,690,110],[460,620,30]].forEach(([x,y,r]) => { const b = bean($('.beans', s2), x, y, r, 1.4); b.dataset.bob = 1; });
-for (let i = 0; i < 12; i++) el('circle', { cx: rnd(330, 750), cy: rnd(640, 720), r: rnd(6, 13), fill: '#fff', stroke: '#16794a', 'stroke-width': 3, class: 'bubble' }, $('.bubbles', s2));
+/* ---------- 2: soak ---------- */
+const nB = $('#nB');
+[[640,1400,80],[730,1415,110],[830,1395,70],[900,1415,100],[690,1350,30],[860,1340,-30]].forEach(([x, y, r], i) => { const b = bean($('.beans', nB), x, y, r, 1.1); pop(b, 7.6 + i * .15, .5); bob(b.parentNode, 9 + i * .2); });
+anim($('.water', nB), [{ transform: 'scaleY(0)', transformOrigin: 'center bottom' }, { transform: 'scaleY(1)', transformOrigin: 'center bottom' }], 8.2, 2, { ease: 'ease-out' });
+for (let i = 0; i < 12; i++) { const c = el('circle', { cx: rnd(590, 930), cy: rnd(1360, 1440), r: rnd(6, 12), fill: '#fff', stroke: '#16794a', 'stroke-width': 3 }, $('.bubbles', nB));
+  anim(c, [{ transform: 'translateY(0)', opacity: 0 }, { opacity: 1, offset: .2 }, { transform: 'translateY(-330px)', opacity: 0 }], 9.4 + i * .22, 2.2, { iter: Infinity, ease: 'ease-in' }); }
+for (let i = 0; i < 5; i++) { const g = el('g', {}, $('#movers')); el('use', { href: '#bean', style: 'color:#3fae6e', transform: 'scale(.45)' }, g);
+  along(g, P.s2, 12.2 + i * .3, 1.5); }
 
-// 3 & 4: flavour hexagons
-function hexes(g, n, box) { for (let i = 0; i < n; i++) { const w = el('g', { transform: `translate(${rnd(box[0], box[2])} ${rnd(box[1], box[3])}) scale(${rnd(.9, 1.5)})` }, g);
-  el('use', { href: '#hex', fill: 'none', stroke: '#fff', 'stroke-width': 4, class: 'hx' }, w); } }
-hexes($('.hexes', $('#s3')), 16, [330, 190, 750, 700]);
-hexes($('.hexes', $('#s4')), 10, [230, 150, 850, 720]);
-
-// 4: caffeine leaving beans
-const s4 = $('#s4');
-[[370,430,-20],[540,540,10],[710,420,30]].forEach(([x,y,r], bi) => {
-  bean($('.beans', s4), x, y, r, 2.7, '#0b4d32').dataset.bob = 1;
-  for (let i = 0; i < 7; i++) { const a = rnd(0, Math.PI * 2), d = rnd(110, 200);
-    const c = el('circle', { cx: x, cy: y, r: 12, fill: '#fff', stroke: '#0b4d32', 'stroke-width': 4, class: 'cf' }, $('.dots', s4));
-    c.dataset.dx = Math.cos(a) * d; c.dataset.dy = Math.sin(a) * d; c.dataset.t = 1 + bi * .25 + i * .33; }
+/* ---------- 3+4: extract & carbon loop ---------- */
+const nC = $('#nC');
+anim($('.water', nC), [{ transform: 'scaleY(0)', transformOrigin: 'center bottom' }, { transform: 'scaleY(1)', transformOrigin: 'center bottom' }], 13.2, 1.6, { ease: 'ease-out' });
+for (let i = 0; i < 12; i++) { const w = el('g', { transform: `translate(${rnd(150, 450)} ${rnd(1860, 2240)}) scale(${rnd(.9, 1.4)})` }, $('.hexes', nC));
+  const h = el('use', { href: '#hex', fill: 'none', stroke: '#fff', 'stroke-width': 4 }, w);
+  anim(h, [{ opacity: 0 }, { opacity: 1 }], 13.8 + i * .06, .6);
+  anim(h, [{ transform: 'translate(0,0) rotate(0deg)' }, { transform: `translate(${rnd(-20, 20)}px,${rnd(-25, 25)}px) rotate(60deg)` }], 13, rnd(2, 3), { iter: Infinity, dir: 'alternate', ease: 'ease-in-out' }); }
+[[210,2140,-20],[300,2030,15],[390,2150,30],[300,2210,80]].forEach(([x, y, r], bi) => {
+  const b = bean($('.beans', nC), x, y, r, 1.5, '#0b4d32'); pop(b, 13.6 + bi * .15, .5); bob(b.parentNode, 14 + bi * .3);
+  for (let i = 0; i < 5; i++) { const a = rnd(0, Math.PI * 2), d = rnd(70, 120);
+    const c = el('circle', { cx: x, cy: y, r: 10, fill: '#fff', stroke: '#0b4d32', 'stroke-width': 4 }, $('.dots', nC));
+    anim(c, [{ transform: 'translate(0,0) scale(.2)', opacity: 0 }, { opacity: 1, offset: .25 }, { transform: `translate(${Math.cos(a) * d}px,${Math.sin(a) * d}px) scale(1)`, opacity: 1, offset: .8 },
+      { transform: `translate(${Math.cos(a) * d}px,${Math.sin(a) * d}px) scale(1)`, opacity: 0 }], 14.6 + bi * .2 + i * .4, 2.2, { iter: Infinity, ease: 'ease-out' }); }
 });
+for (let r = 0; r < 9; r++) for (let c = 0; c < 5; c++) el('circle', { cx: 672 + c * 64 + (r % 2) * 32, cy: 1850 + r * 54, r: 18, fill: '#16794a' }, $('.carbon', nC));
+// caffeine rides the top pipe into the filter and stays there
+for (let i = 0; i < 26; i++) { const c = el('circle', { r: 11, fill: '#fff', stroke: '#0b4d32', 'stroke-width': 4 }, $('#movers'));
+  along(c, P.lt, 15.9 + i * .22, 1.3, { keep: 1, end: [rnd(670, 930), rnd(1850, 2250)] }); }
+// clean extract returns along the bottom pipe
+for (let i = 0; i < 8; i++) { const c = el('circle', { r: 10, fill: '#a8dfbb', stroke: '#16794a', 'stroke-width': 3 }, $('#movers'));
+  along(c, P.lb, 16.4 + i * .3, 1.2, { iter: Infinity, ease: 'linear' }); }
 
-// 5: carbon filter
-const s5 = $('#s5');
-for (let r = 0; r < 11; r++) for (let c = 0; c < 5; c++) el('circle', { cx: 690 + c * 55 + (r % 2) * 27, cy: 160 + r * 52, r: 16, fill: '#3fae6e', opacity: .6 }, $('.carbon', s5));
-for (let i = 0; i < 16; i++) { const c = el('circle', { r: 12, fill: '#fff', stroke: '#0b4d32', 'stroke-width': 4, class: 'trav' }, $('.dots', s5));
-  Object.assign(c.dataset, { x0: rnd(150, 420), y0: rnd(330, 640), fx: rnd(690, 910), fy: rnd(160, 600), t: .8 + i * .3 }); }
+/* ---------- 5: dryer / roaster ---------- */
+const nD = $('#nD'), drum = $('.drum', nD);
+const roastBeans = [[-60,-50,20],[50,-60,-30],[0,10,60],[-70,50,-10],[60,50,40],[0,-110,0],[-110,0,90],[110,0,-80],[0,100,30]]
+  .map(([x, y, r]) => bean(drum, 380 + x, 3410 + y, r, .9));
+anim(drum, [{ transform: 'rotate(0deg)' }, { transform: 'rotate(360deg)' }], 22.8, 3, { iter: Infinity, ease: 'linear' });
+roastBeans.forEach((b, i) => { pop(b, 22.6 + i * .05, .5); anim(b.firstChild, [{ color: '#3fae6e' }, { color: '#8a5a3b' }], 23.6 + i * .08, 2.2, { ease: 'ease-in-out' }); });
+[320, 380, 440].forEach((x, i) => { const w = el('path', { d: `M${x} 3230 c -18 -22 18 -38 0 -60 c -18 -22 18 -38 0 -60`, fill: 'none', stroke: '#3fae6e', 'stroke-width': 8, 'stroke-linecap': 'round' }, $('.heat', nD));
+  anim(w, [{ transform: 'translateY(0)', opacity: 0 }, { opacity: .9, offset: .3 }, { transform: 'translateY(-50px)', opacity: 0 }], 23 + i * .35, 1.5, { iter: Infinity, ease: 'ease-out' }); });
+for (let i = 0; i < 5; i++) { const g = el('g', {}, $('#movers')); el('use', { href: '#bean', style: 'color:#0b4d32', transform: 'scale(.45)' }, g); along(g, P.s3, 21.8 + i * .28, 1.6); }
+for (let i = 0; i < 4; i++) { const g = el('g', {}, $('#movers')); el('use', { href: '#bean', style: 'color:#8a5a3b', transform: 'scale(.45)' }, g); along(g, P.s4, 26.8 + i * .3, 1.1); }
 
-// 6: cycle ring with arrowheads
-const spin = $('.spin', $('#s6'));
-el('circle', { r: 300, fill: 'none', stroke: '#16794a', 'stroke-width': 14, 'stroke-dasharray': '842 100', 'stroke-linecap': 'round' }, spin);
-[164, 344].forEach(a => { const rad = a * Math.PI / 180;
-  el('path', { d: 'M-22,-26 L26,0 L-22,26Z', fill: '#16794a', transform: `translate(${300 * Math.cos(rad)} ${300 * Math.sin(rad)}) rotate(${a + 90})` }, spin); });
-for (let i = 0; i < 6; i++) { const rad = (i * 60 + 30) * Math.PI / 180; el('use', { href: '#hex', fill: '#a8dfbb', transform: `translate(${360 * Math.cos(rad)} ${360 * Math.sin(rad)}) scale(1.1)`, opacity: .7 }, spin); }
+/* ---------- 6: cup ---------- */
+pop($('.cup'), 27.9, .8);
+[480, 540, 600].forEach((x, i) => { const w = el('path', { d: `M${x} 3840 c -22 -28 22 -46 0 -74 c -22 -28 22 -46 0 -74`, fill: 'none', stroke: '#a8dfbb', 'stroke-width': 9, 'stroke-linecap': 'round' }, $('.steam'));
+  anim(w, [{ transform: 'translateY(0)', opacity: 0 }, { opacity: .9, offset: .3 }, { transform: 'translateY(-60px)', opacity: 0 }], 28.4 + i * .4, 1.8, { iter: Infinity, ease: 'ease-out' }); });
 
-// 7: drying beans, heat waves, steam
-const s7 = $('#s7');
-[260, 370, 480, 600, 710, 820].forEach((x, i) => { const b = bean($('.beans', s7), x, 262, 90 + (i % 2 ? 15 : -15), 1.15); b.classList.add('dry'); });
-[330, 540, 750].forEach((x, i) => el('path', { class: 'wave', d: `M${x} 230 c -25 -30 25 -50 0 -80 c -25 -30 25 -50 0 -80`, fill: 'none', stroke: '#3fae6e', 'stroke-width': 8, 'stroke-linecap': 'round', 'data-t': i * .4 }, $('.waves', s7)));
-[480, 540, 600].forEach((x, i) => el('path', { class: 'smoke', d: `M${x} 490 c -22 -28 22 -46 0 -74 c -22 -28 22 -46 0 -74`, fill: 'none', stroke: '#a8dfbb', 'stroke-width': 9, 'stroke-linecap': 'round', 'data-t': 3 + i * .45 }, $('.steam', s7)));
+/* ---------- labels ---------- */
+const lbl = (id, t) => { const e = $(id); anim(e.querySelector('b'), [{ opacity: 0, transform: 'scale(0)' }, { opacity: 1, transform: 'scale(1)' }], t, .6);
+  rise(e.querySelector('h3'), t + .15); rise(e.querySelector('p'), t + .3); };
+lbl('#lA', 3.6); lbl('#lB', 8.6); lbl('#lC', 13.8); lbl('#lF', 16); lbl('#lD', 23.2);
+rise($('#cnt strong'), 17.4); rise($('#cnt span'), 17.6); anim($('#cnt i'), [{ opacity: 0, transform: 'scale(.4)' }, { opacity: 1, transform: 'scale(1)' }], 18.4, .7);
+rise($('#end h2'), 31.6); rise($('#end p'), 32.1); $$('#end .chips span').forEach((c, i) => anim(c, [{ opacity: 0, transform: 'scale(.4)' }, { opacity: 1, transform: 'scale(1)' }], 32.6 + i * .25, .6));
 
-// 9: Brewtiful outro – steam + sparkles
-const s9 = $('#s9');
-[480, 540, 600].forEach((x, i) => el('path', { class: 'smoke', d: `M${x} 310 c -22 -28 22 -46 0 -74 c -22 -28 22 -46 0 -74`, fill: 'none', stroke: '#a8dfbb', 'stroke-width': 9, 'stroke-linecap': 'round', 'data-t': 1.6 + i * .45 }, $('.steam', s9)));
-[[150,330],[930,300],[220,560],[880,600],[300,230],[790,220]].forEach(([x, y], i) => { const g = el('g', { transform: `translate(${x} ${y})` }, $('.sparks', s9));
-  el('path', { class: 'spark', d: 'M0,-22 L6,-6 L22,0 L6,6 L0,22 L-6,6 L-22,0 L-6,-6Z', fill: i % 2 ? '#a8dfbb' : '#3fae6e', 'data-t': .8 + i * .15 }, g); });
+/* ---------- intro ---------- */
+anim($('#ring'), [{ strokeDashoffset: 880 }, { strokeDashoffset: 0 }], .2, 1.2);
+pop($('#drop'), .5); pop($('#ibean'), .9); rise($('#t1'), 1); rise($('#t2'), 1.4);
+anim($('#intro'), [{ opacity: 1, transform: 'none' }, { opacity: 0, transform: 'translateY(-120px)' }], 3.1, .7, { ease: 'ease-in' });
 
-/* ---------- timeline ---------- */
+/* ---------- camera ---------- */
+const C = REEL ? 940 : 980, K = REEL ? .86 : 1;
+const cam = [[0, 520, 1], [3.1, 520, 1], [3.8, 560, 1], [7.4, 620, 1], [8.4, 1260, 1], [12, 1300, 1], [13.1, 2120, .97], [17, 2150, .97], [21.2, 2420, .97],
+  [22.4, 3330, 1], [26.4, 3380, 1], [28.2, 2290, .4], [30.6, 2290, .4], [31.8, 4420, 1.12], [D, 4440, 1.12]];
+anim($('#cv'), cam.map(([t, f, s], i) => ({ offset: t / D, transform: `translateY(${C}px) scale(${s * K}) translateY(${-f}px)`, easing: CAM })), 0, D, { ease: 'linear' });
+anim($('#cv'), [{ opacity: 0 }, { opacity: 1 }], 3.1, .6);
 anim($('.progress'), [{ transform: 'scaleX(0)' }, { transform: 'scaleX(1)' }], 0, D, { ease: 'linear' });
-document.querySelectorAll('.orb').forEach((o, i) => anim(o, [{ transform: 'translate(0,0) scale(1)' }, { transform: `translate(${i ? 80 : -80}px,60px) scale(1.2)` }], 0, 7, { iter: Infinity, dir: 'alternate', ease: 'ease-in-out' }));
-document.querySelectorAll('.cap').forEach(c => { const s = +c.dataset.s, e = +c.dataset.e; span(c, s, e, .4);
-  anim(c, [{ transform: 'translateY(24px)' }, { transform: 'none' }], s, .6); });
-
-document.querySelectorAll('.scene').forEach(sc => {
-  const S = +sc.dataset.s, E = +sc.dataset.e;
-  span(sc, S, E);
-  sc.querySelectorAll('[data-in]').forEach(e => anim(e, IN[e.dataset.in], S + (+e.dataset.t || 0), .9));
-  sc.querySelectorAll('[data-bob]').forEach((e, i) => anim(e.parentNode, [{ transform: 'translateY(-10px)' }, { transform: 'translateY(10px)' }], S + i * .2, 1.6, { iter: Infinity, dir: 'alternate', ease: 'ease-in-out' }));
-  sc.querySelectorAll('.hx').forEach((e, i) => { anim(e, [{ transform: 'translate(0,0) rotate(0deg)' }, { transform: `translate(${rnd(-20, 20)}px,${rnd(-30, 30)}px) rotate(60deg)` }], S, rnd(2, 3.2), { iter: Infinity, dir: 'alternate', ease: 'ease-in-out' });
-    anim(e, [{ opacity: 0 }, { opacity: 1 }], S + .8 + i * .05, .6); });
-});
-
-// scene 2: water fills, stream stops, bubbles
-anim($('.water', s2), [{ transform: 'scaleY(0)', transformOrigin: 'center bottom' }, { transform: 'scaleY(1)', transformOrigin: 'center bottom' }], 11.4, 2.8, { ease: 'ease-out' });
-anim($('.stream', s2), [{ opacity: 0 }, { opacity: .8, offset: .1 }, { opacity: .8, offset: .85 }, { opacity: 0 }], 11.3, 3);
-s2.querySelectorAll('.bubble').forEach((b, i) => anim(b, [{ transform: 'translateY(0)', opacity: 0 }, { opacity: .9, offset: .2 }, { transform: 'translateY(-480px)', opacity: 0 }], 13 + i * .25, 2.4, { iter: Infinity, ease: 'ease-in' }));
-
-// scene 3: green extract pours in
-anim($('.water', $('#s3')), [{ transform: 'scaleY(0)', transformOrigin: 'center bottom' }, { transform: 'scaleY(1)', transformOrigin: 'center bottom' }], 17.3, 2, { ease: 'ease-out' });
-
-// scene 4: caffeine diffuses out
-s4.querySelectorAll('.cf').forEach(c => anim(c, [{ transform: 'translate(0,0) scale(.2)', opacity: 0 }, { opacity: 1, offset: .25 },
-  { transform: `translate(${c.dataset.dx}px,${c.dataset.dy}px) scale(1)`, opacity: 1, offset: .8 }, { transform: `translate(${c.dataset.dx}px,${c.dataset.dy}px) scale(1)`, opacity: 0 }], 23.5 + +c.dataset.t, 2.6, { iter: Infinity, ease: 'ease-out' }));
-
-// scene 5: caffeine travels into the carbon filter and stays
-s5.querySelectorAll('.trav').forEach(c => { const d = c.dataset;
-  anim(c, [{ transform: `translate(${d.x0}px,${d.y0}px)`, opacity: 0 }, { opacity: 1, offset: .1 }, { transform: 'translate(440px,260px)', offset: .4 },
-    { transform: 'translate(660px,260px)', offset: .62 }, { transform: `translate(${d.fx}px,${d.fy}px)`, opacity: 1 }], 31 + +d.t, 2.2, { ease: 'ease-in-out' }); });
-anim($('.flow', s5), [{ strokeDashoffset: 0 }, { strokeDashoffset: -80 }], 31, .8, { iter: Infinity, ease: 'linear' });
-
-// scene 6: spin
-anim(spin, [{ transform: 'rotate(0deg)' }, { transform: 'rotate(360deg)' }], 38.5, 4, { iter: Infinity, ease: 'linear' });
-
-// scene 7: drying + steam
-s7.querySelectorAll('.dry').forEach(b => anim(b.firstChild, [{ color: '#3fae6e' }, { color: '#8a5a3b' }], 45.6, 1.8));
-s7.querySelectorAll('.wave').forEach(w => anim(w, [{ transform: 'translateY(0)', opacity: 0 }, { opacity: .9, offset: .3 }, { transform: 'translateY(-60px)', opacity: 0 }], 45.3 + +w.dataset.t, 1.6, { iter: Infinity, ease: 'ease-out' }));
-s7.querySelectorAll('.smoke').forEach(w => anim(w, [{ transform: 'translateY(0)', opacity: 0 }, { opacity: .8, offset: .3 }, { transform: 'translateY(-70px)', opacity: 0 }], 45 + +w.dataset.t, 1.8, { iter: Infinity, ease: 'ease-out' }));
-
-// scene 9
-s9.querySelectorAll('.smoke').forEach(w => anim(w, [{ transform: 'translateY(0)', opacity: 0 }, { opacity: .8, offset: .3 }, { transform: 'translateY(-70px)', opacity: 0 }], 57 + +w.dataset.t, 1.8, { iter: Infinity, ease: 'ease-out' }));
-s9.querySelectorAll('.spark').forEach(w => anim(w, [{ transform: 'scale(0) rotate(0deg)', opacity: 0 }, { transform: 'scale(1) rotate(45deg)', opacity: 1, offset: .5 }, { transform: 'scale(0) rotate(90deg)', opacity: 0 }], 57 + +w.dataset.t, 1.6, { iter: Infinity, ease: 'ease-in-out' }));
 
 /* ---------- clock ---------- */
-const counter = $('#counter');
+const num = $('#num');
 function setTime(t) {
   document.getAnimations().forEach(a => { a.pause(); a.currentTime = t * 1000; });
-  const p = Math.min(1, Math.max(0, (t - 39.2) / 4.3)), v = 99.9 * (1 - Math.pow(1 - p, 3));
-  counter.textContent = ar(p >= 1 ? '99.9' : v < 10 ? v.toFixed(1) : v.toFixed(1)) + '٪';
+  const p = Math.min(1, Math.max(0, (t - 17.4) / 4)), v = 99.9 * (1 - Math.pow(1 - p, 3));
+  num.textContent = ar(p >= 1 ? '99.9' : v.toFixed(1)) + '٪';
 }
 window.setTime = setTime; window.DURATION = D;
 
 const frame = $('#frame');
-if (/reel/.test(location.search)) frame.classList.add('reel');
 function fit() { const s = Math.min(innerWidth / 1080, innerHeight / 1920); frame.style.transform = `scale(${s})`; }
 if (!/render/.test(location.search)) {
   fit(); addEventListener('resize', fit);
