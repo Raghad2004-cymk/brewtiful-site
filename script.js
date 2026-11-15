@@ -1,12 +1,12 @@
 const STORE = 'https://brewtiful.club';
 const PRODUCTS = [
   {t:'Ethiopia Sidamo Bombe Decaf', h:'ethiopia-sidamo-bombe', p:110, s:5, i:'4E73B99E-55CD-4941-AD7D-3CF5A7800D33.png?v=1789062616'},
-  {t:'Ethiopia Sidamo Decaf', h:'ethiopia-sidamo-decaf-beans', p:110, s:8, i:'ADCBDCC2-72CA-48DC-8DC3-268A27D1B86C.png?v=1789062616'},
-  {t:'Colombia Huila Decaf', h:'colombia-huila-decaf', p:125, s:9, i:'IMG-0141.png?v=1790080307'},
+  {t:'Ethiopia Sidamo Decaf', h:'ethiopia-sidamo-decaf-beans', p:115, s:20, i:'ADCBDCC2-72CA-48DC-8DC3-268A27D1B86C.png?v=1789062616'},
+  {t:'Colombia Huila Decaf', h:'colombia-huila-decaf', p:125, s:20, i:'IMG-0141.png?v=1790080307'},
   {t:'Sunday Drive Decaf', h:'sunday-drive-decaf-beans', p:120, s:9, i:'84450374-EAEC-4FED-BE38-24EFF4BC5CFD.png?v=1789062616'},
-  {t:'Honduras Decaf', h:'honduras-decaf-beans', p:135, s:9, i:'1E5FCD8D-7CCC-431A-A21C-6D00C72309D9.png?v=1789062617'},
-  {t:'Mississippi Grogg Decaf', h:'mississippi-grogg-decaf-beans', p:135, s:10, i:'D6BDBDBC-97F8-4FE6-9992-1DA3A57A54AB.png?v=1789062617'},
-  {t:'True Love Decaf', h:'true-love-decaf', p:150, s:0, i:'D109E80D-520E-41C6-A3A2-4CE905DD2965.png?v=1789062617', tag:'LIMITED TIME'}
+  {t:'Honduras Decaf', h:'honduras-decaf-beans', p:135, s:20, i:'1E5FCD8D-7CCC-431A-A21C-6D00C72309D9.png?v=1789062617'},
+  {t:'Mississippi Grogg Decaf', h:'mississippi-grogg-decaf-beans', p:135, s:20, i:'D6BDBDBC-97F8-4FE6-9992-1DA3A57A54AB.png?v=1789062617'},
+  {t:'Cinnamon Flavored Decaf', h:'cinnamon-flavord', p:140, s:20, i:'363BC9EC-CCD8-4C56-8C4E-5946A1E237AD.png?v=1792261878'}
 ];
 const IMG = 'https://cdn.shopify.com/s/files/1/1023/2581/3527/files/';
 const esc = s => s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
