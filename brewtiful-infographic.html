@@ -42,6 +42,14 @@ body{display:grid;place-items:center;font-family:Cairo,sans-serif;color:var(--g8
 .card b{display:block;font-size:46px;font-weight:900;line-height:1.25}
 .card small{display:block;font-size:32px;font-weight:700;color:var(--g400)}
 .card.wide{grid-column:1/-1;text-align:center}
+.flow{position:absolute;top:900px;inset-inline:50px;display:flex;align-items:center;justify-content:center;gap:14px}
+.flow div{width:205px;background:#fff;border:4px solid var(--g200);border-radius:34px;padding:26px 6px;text-align:center;font-weight:900;font-size:34px;line-height:1.3;box-shadow:0 14px 30px rgba(11,77,50,.07)}
+.flow i{display:block;font-style:normal;font-size:90px;line-height:1.3}
+.flow b{font-size:50px;color:var(--g400);font-weight:900}
+.deck{position:absolute;top:620px;left:60px;width:960px;height:734px}
+.deck img{position:absolute;inset:0;width:100%;height:100%;border-radius:40px;box-shadow:0 30px 60px rgba(11,77,50,.25);opacity:0}
+.dots{position:absolute;top:1400px;inset-inline:0;display:flex;justify-content:center;gap:16px}
+.dots i{width:22px;height:22px;border-radius:50%;background:var(--g200)}
 .url{display:inline-block;direction:ltr;font-size:80px;font-weight:900;color:#fff;background:var(--g600);padding:16px 56px;border-radius:999px;box-shadow:0 16px 34px rgba(22,121,74,.3)}
 </style>
 </head>
@@ -52,7 +60,7 @@ body{display:grid;place-items:center;font-family:Cairo,sans-serif;color:var(--g8
 
   <!-- 1 السؤال -->
   <section class="sc" data-s="0" data-e="3.5">
-    <img class="art" src="media/swiss-3d/7.jpg" style="top:470px;width:700px;margin-left:-350px" data-in="pop" data-t=".1">
+    <img class="art" src="media/infographic/characters.png" style="top:620px;width:900px;margin-left:-450px" data-in="pop" data-t=".1">
     <div class="c t1" style="top:300px" data-in="up" data-t=".2">تحب القهوة… ☕</div>
     <div class="c t2" style="top:1600px" data-in="up" data-t="1.6">بس ما تبي <span style="color:var(--g400)">الكافيين</span>؟</div>
   </section>
@@ -61,7 +69,12 @@ body{display:grid;place-items:center;font-family:Cairo,sans-serif;color:var(--g8
   <section class="sc" data-s="3.4" data-e="9.3">
     <div class="c word" style="top:330px" data-in="pop" data-t=".2">Brew<em>tiful</em></div>
     <div class="c t2" style="top:590px" data-in="up" data-t="1.2">قهوة مختصة من قطر</div>
-    <img class="art" src="media/swiss-3d/2.jpg" style="top:640px;width:700px;margin-left:-350px" data-in="pop" data-t="2.4">
+    <div class="flow">
+      <div data-in="pop" data-t="2.2"><i><svg viewBox="-30 -40 60 80" width="70" height="90"><ellipse rx="26" ry="36" fill="#3fae6e"/><path d="M3,-31 C-13,-12 14,10 -3,31" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"/></svg></i>حبوب خضراء</div><b data-in="pop" data-t="2.5">←</b>
+      <div data-in="pop" data-t="2.8"><i>💧</i>ماء</div><b data-in="pop" data-t="3.1">←</b>
+      <div data-in="pop" data-t="3.4"><i>⚫</i>فلتر كربون</div><b data-in="pop" data-t="3.7">←</b>
+      <div data-in="pop" data-t="4"><i>☕</i>ديكاف</div>
+    </div>
     <div class="c" style="top:1560px" data-in="up" data-t="3.2"><span class="pill">منزوعة الكافيين · طريقة سويس ووتر</span></div>
   </section>
 
@@ -89,25 +102,19 @@ body{display:grid;place-items:center;font-family:Cairo,sans-serif;color:var(--g8
   <!-- 5 النكهات -->
   <section class="sc" data-s="16.9" data-e="22">
     <div class="c t1" style="top:300px" data-in="up" data-t=".1"><span style="color:var(--g400)">٧</span> نكهات</div>
-    <div class="grid">
-      <div class="card" data-in="pop" data-t=".5"><b>🇪🇹 إثيوبيا سيدامو</b><small>توت · حمضيات · ورد</small></div>
-      <div class="card" data-in="pop" data-t=".8"><b>🇪🇹 سيدامو بومبي</b><small>تفاح · برغموت · بطيخ</small></div>
-      <div class="card" data-in="pop" data-t="1.2"><b>🇨🇴 كولومبيا هويلا</b><small>جوز · براونيز · برتقال</small></div>
-      <div class="card" data-in="pop" data-t="1.6"><b>🇭🇳 هندوراس</b><small>شوكولاتة · سكر قصب · ياسمين</small></div>
-      <div class="card" data-in="pop" data-t="2.2"><b>🍁 ميسيسيبي قروق</b><small>كراميل · بندق · بتر سكوتش</small></div>
-      <div class="card" data-in="pop" data-t="2.6"><b>🚗 صنداي درايف</b><small>قوام غني وناعم</small></div>
-      <div class="card wide" data-in="pop" data-t="3.4"><b>🍪 القرفة</b><small>قرفة · فانيلا · آيسنق</small></div>
-    </div>
+    <div class="deck" id="deck"></div>
+    <div class="dots" id="dots"></div>
+    <div class="c t3" style="top:1480px;font-size:42px" data-in="up" data-t=".6">من إثيوبيا وكولومبيا وهندوراس… لين القرفة والكراميل</div>
   </section>
 
   <!-- 6 الختام -->
   <section class="sc" data-s="21.9" data-e="28.5" data-last>
-    <img class="art" src="media/swiss-3d/7.jpg" style="top:300px;width:540px;margin-left:-270px" data-in="pop" data-t=".1">
+    <img class="art" src="media/infographic/characters.png" style="top:470px;width:760px;margin-left:-380px" data-in="pop" data-t=".1">
     <div class="c t2" style="top:300px" data-in="up" data-t=".1">اطلبها الحين</div>
     <div class="c" style="top:1210px" data-in="pop" data-t=".4"><span class="url">brewtiful.club</span></div>
-    <div class="c t3" style="top:1370px" data-in="up" data-t=".9">تبدأ من ٩٠ ر.ق</div>
+    <div class="c t3" style="top:1395px" data-in="up" data-t=".9">تبدأ من ٩٠ ر.ق</div>
     <div class="c word" style="top:1480px;font-size:170px" data-in="up" data-t="2.3">Brew<em>tiful</em></div>
-    <div class="c t3" style="top:1670px;direction:ltr" data-in="up" data-t="3.3">where flavor stays</div>
+    <div class="c t3" style="top:1670px;direction:ltr" data-in="up" data-t="3.3">where flavor stays · good coffee, good nights</div>
   </section>
 </div>
 
@@ -132,6 +139,15 @@ $$('.sc').forEach(sc => {
     if (art) anim(e, [{ translate: '0 -12px' }, { translate: '0 12px' }], S, 1.8, { iter: Infinity, dir: 'alternate', ease: 'ease-in-out' });
   });
 });
+const deck = $('#deck'), dots = $('#dots'), C0 = 17.3, STEP = .66;
+for (let i = 1; i <= 7; i++) {
+  const im = document.createElement('img'); im.src = `media/infographic/flavors/${i}.jpg`; deck.appendChild(im);
+  const t = C0 + (i - 1) * STEP, last = i === 7;
+  anim(im, [{ opacity: 0, transform: 'translateX(-260px) rotate(-6deg) scale(.9)' }, { opacity: 1, transform: 'none' }], t, .45);
+  if (!last) anim(im, [{ opacity: 1, transform: 'none' }, { opacity: 0, transform: 'translateX(260px) rotate(6deg) scale(.9)' }], t + STEP, .4, { fill: 'forwards' });
+  const d = document.createElement('i'); dots.appendChild(d);
+  anim(d, [{ background: '#a8dfbb', transform: 'scale(1)' }, { background: '#16794a', transform: 'scale(1.4)' }], t, .3, { fill: 'forwards' });
+}
 anim($('#arc'), [{ strokeDashoffset: 100 }, { strokeDashoffset: .1 }], 12.2, 3, { ease: 'cubic-bezier(.3,0,.2,1)' });
 anim($('.progress'), [{ transform: 'scaleX(0)' }, { transform: 'scaleX(1)' }], 0, D, { ease: 'linear' });
 
