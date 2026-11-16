@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brewtiful | إنفوقرافيك</title>
+<style>
+@font-face{font-family:Cairo;font-weight:500;src:url(fonts/Cairo-500.ttf) format('truetype')}
+@font-face{font-family:Cairo;font-weight:700;src:url(fonts/Cairo-700.ttf) format('truetype')}
+@font-face{font-family:Cairo;font-weight:900;src:url(fonts/Cairo-900.ttf) format('truetype')}
+:root{--g800:#0b4d32;--g600:#16794a;--g400:#3fae6e;--g200:#a8dfbb;--g100:#e3f5e9}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%;background:#eef6f1;overflow:hidden}
+body{display:grid;place-items:center;font-family:Cairo,sans-serif;color:var(--g800)}
+#frame{position:relative;width:1080px;height:1920px;flex:none;overflow:hidden;transform-origin:center;
+  background:radial-gradient(#dcf1e4 2.5px,transparent 3px) 0 0/44px 44px,#fefefe}
+.progress{position:absolute;top:0;inset-inline:0;height:12px;background:linear-gradient(270deg,var(--g400),var(--g600));transform-origin:right;transform:scaleX(0);z-index:9}
+.brand{position:absolute;top:80px;inset-inline:0;text-align:center;z-index:9}
+.brand span{display:inline-block;padding:10px 34px;border:3px solid var(--g200);background:#fff;border-radius:999px;font-weight:700;font-size:34px}
+.brand b{font-weight:900;color:var(--g400)}
+.sc{position:absolute;inset:0;opacity:0}
+.c{position:absolute;inset-inline:0;text-align:center}
+.t1{font-size:110px;font-weight:900;line-height:1.2}
+.t2{font-size:72px;font-weight:900;line-height:1.25}
+.t3{font-size:50px;font-weight:700;color:var(--g400)}
+.pill{display:inline-block;background:var(--g600);color:#fff;font-weight:900;font-size:46px;padding:10px 40px;border-radius:999px;box-shadow:0 12px 26px rgba(22,121,74,.25)}
+.art{position:absolute;left:50%;mix-blend-mode:multiply}
+.word{font-size:200px;font-weight:900;direction:ltr;line-height:1}.word em{font-style:normal;color:var(--g400)}
+.vs{position:absolute;top:760px;inset-inline:90px;display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.vs div{border-radius:44px;padding:60px 20px;text-align:center;font-weight:900;font-size:56px}
+.vs .ok{background:var(--g100);border:5px solid var(--g400)}
+.vs .no{background:#fff;border:5px dashed #d9d9d9;color:#a9a9a9}
+.vs i{display:block;font-style:normal;font-size:150px;line-height:1.2}
+.vs s{display:block;text-decoration:none;font-size:90px;margin-top:10px}
+.ring{position:absolute;left:50%;top:560px;width:720px;height:720px;margin-left:-360px}
+.ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring .num{position:absolute;inset:0;display:grid;place-content:center;text-align:center}
+.ring strong{font-size:170px;font-weight:900;line-height:1}
+.ring span{font-size:50px;font-weight:700;color:var(--g400)}
+.grid{position:absolute;top:560px;inset-inline:60px;display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.card{background:#fff;border:4px solid var(--g200);border-radius:34px;padding:22px 28px;box-shadow:0 14px 30px rgba(11,77,50,.07)}
+.card b{display:block;font-size:46px;font-weight:900;line-height:1.25}
+.card small{display:block;font-size:32px;font-weight:700;color:var(--g400)}
+.card.wide{grid-column:1/-1;text-align:center}
+.url{display:inline-block;direction:ltr;font-size:80px;font-weight:900;color:#fff;background:var(--g600);padding:16px 56px;border-radius:999px;box-shadow:0 16px 34px rgba(22,121,74,.3)}
+</style>
+</head>
+<body>
+<div id="frame">
+  <div class="progress"></div>
+  <div class="brand"><span><b dir="ltr">Brewtiful</b> · قهوة منزوعة الكافيين</span></div>
+
+  <!-- 1 السؤال -->
+  <section class="sc" data-s="0" data-e="3.5">
+    <img class="art" src="media/swiss-3d/7.jpg" style="top:470px;width:700px;margin-left:-350px" data-in="pop" data-t=".1">
+    <div class="c t1" style="top:300px" data-in="up" data-t=".2">تحب القهوة… ☕</div>
+    <div class="c t2" style="top:1600px" data-in="up" data-t="1.6">بس ما تبي <span style="color:var(--g400)">الكافيين</span>؟</div>
+  </section>
+
+  <!-- 2 البراند -->
+  <section class="sc" data-s="3.4" data-e="9.3">
+    <div class="c word" style="top:330px" data-in="pop" data-t=".2">Brew<em>tiful</em></div>
+    <div class="c t2" style="top:590px" data-in="up" data-t="1.2">قهوة مختصة من قطر</div>
+    <img class="art" src="media/swiss-3d/2.jpg" style="top:640px;width:700px;margin-left:-350px" data-in="pop" data-t="2.4">
+    <div class="c" style="top:1560px" data-in="up" data-t="3.2"><span class="pill">منزوعة الكافيين · طريقة سويس ووتر</span></div>
+  </section>
+
+  <!-- 3 ماء بس -->
+  <section class="sc" data-s="9.2" data-e="11.8">
+    <div class="c t1" style="top:330px" data-in="up" data-t=".1">بالماء بس 💧</div>
+    <div class="vs">
+      <div class="ok" data-in="pop" data-t=".4"><i>💧</i>ماء نقي<s>✓</s></div>
+      <div class="no" data-in="pop" data-t=".9"><i>🧪</i>كيميائيات<s>✗</s></div>
+    </div>
+    <div class="c t3" style="top:1420px" data-in="up" data-t="1.2">بدون أي مواد كيميائية</div>
+  </section>
+
+  <!-- 4 ٩٩٫٩٪ -->
+  <section class="sc" data-s="11.7" data-e="17">
+    <div class="c t2" style="top:320px" data-in="up" data-t=".1">خالية من الكافيين</div>
+    <div class="ring" data-in="pop" data-t=".2">
+      <svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="86" fill="none" stroke="#e3f5e9" stroke-width="20"/>
+        <circle id="arc" cx="100" cy="100" r="86" fill="none" stroke="#16794a" stroke-width="20" stroke-linecap="round" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100"/></svg>
+      <div class="num"><strong id="num">٠٪</strong><span>انشال من الكافيين</span></div>
+    </div>
+    <div class="c" style="top:1420px" data-in="up" data-t="3.9"><span class="pill">…وبنفس الطعم 😋</span></div>
+  </section>
+
+  <!-- 5 النكهات -->
+  <section class="sc" data-s="16.9" data-e="22">
+    <div class="c t1" style="top:300px" data-in="up" data-t=".1"><span style="color:var(--g400)">٧</span> نكهات</div>
+    <div class="grid">
+      <div class="card" data-in="pop" data-t=".5"><b>🇪🇹 إثيوبيا سيدامو</b><small>توت · حمضيات · ورد</small></div>
+      <div class="card" data-in="pop" data-t=".8"><b>🇪🇹 سيدامو بومبي</b><small>تفاح · برغموت · بطيخ</small></div>
+      <div class="card" data-in="pop" data-t="1.2"><b>🇨🇴 كولومبيا هويلا</b><small>جوز · براونيز · برتقال</small></div>
+      <div class="card" data-in="pop" data-t="1.6"><b>🇭🇳 هندوراس</b><small>شوكولاتة · سكر قصب · ياسمين</small></div>
+      <div class="card" data-in="pop" data-t="2.2"><b>🍁 ميسيسيبي قروق</b><small>كراميل · بندق · بتر سكوتش</small></div>
+      <div class="card" data-in="pop" data-t="2.6"><b>🚗 صنداي درايف</b><small>قوام غني وناعم</small></div>
+      <div class="card wide" data-in="pop" data-t="3.4"><b>🍪 القرفة</b><small>قرفة · فانيلا · آيسنق</small></div>
+    </div>
+  </section>
+
+  <!-- 6 الختام -->
+  <section class="sc" data-s="21.9" data-e="28.5" data-last>
+    <img class="art" src="media/swiss-3d/7.jpg" style="top:300px;width:540px;margin-left:-270px" data-in="pop" data-t=".1">
+    <div class="c t2" style="top:300px" data-in="up" data-t=".1">اطلبها الحين</div>
+    <div class="c" style="top:1210px" data-in="pop" data-t=".4"><span class="url">brewtiful.club</span></div>
+    <div class="c t3" style="top:1370px" data-in="up" data-t=".9">تبدأ من ٩٠ ر.ق</div>
+    <div class="c word" style="top:1480px;font-size:170px" data-in="up" data-t="2.3">Brew<em>tiful</em></div>
+    <div class="c t3" style="top:1670px;direction:ltr" data-in="up" data-t="3.3">where flavor stays</div>
+  </section>
+</div>
+
+<script>
+const D = 28.5, EASE = 'cubic-bezier(.2,.8,.2,1)';
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+const ar = s => String(s).replace(/\d/g, d => '٠١٢٣٤٥٦٧٨٩'[d]).replace('.', '٫');
+const anim = (e, kf, st, du, o = {}) => e.animate(kf, { delay: st * 1000, duration: du * 1000, fill: o.fill || 'both', easing: o.ease || EASE, iterations: o.iter || 1, direction: o.dir || 'normal' });
+const k = t => Math.min(1, Math.max(0, t / D));
+const IN = {
+  up: [{ opacity: 0, transform: 'translateY(60px)' }, { opacity: 1, transform: 'none' }],
+  pop: [{ opacity: 0, transform: 'scale(.5)' }, { opacity: 1, transform: 'scale(1)' }],
+};
+$$('.sc').forEach(sc => {
+  const S = +sc.dataset.s, E = +sc.dataset.e, last = 'last' in sc.dataset;
+  anim(sc, [{ opacity: 0, offset: 0 }, { opacity: 0, offset: k(S) }, { opacity: 1, offset: k(S + .3) },
+    { opacity: 1, offset: k(last ? D : E - .3) }, { opacity: last ? 1 : 0, offset: k(E) }, { opacity: last ? 1 : 0, offset: 1 }], 0, D, { ease: 'linear' });
+  sc.querySelectorAll('[data-in]').forEach(e => {
+    const art = e.classList.contains('art');
+    const kf = art ? [{ opacity: 0, transform: 'scale(.6) translateY(80px)' }, { opacity: 1, transform: 'none' }] : IN[e.dataset.in];
+    anim(e, kf, S + (+e.dataset.t || 0), .8);
+    if (art) anim(e, [{ translate: '0 -12px' }, { translate: '0 12px' }], S, 1.8, { iter: Infinity, dir: 'alternate', ease: 'ease-in-out' });
+  });
+});
+anim($('#arc'), [{ strokeDashoffset: 100 }, { strokeDashoffset: .1 }], 12.2, 3, { ease: 'cubic-bezier(.3,0,.2,1)' });
+anim($('.progress'), [{ transform: 'scaleX(0)' }, { transform: 'scaleX(1)' }], 0, D, { ease: 'linear' });
+
+const num = $('#num');
+function setTime(t) {
+  document.getAnimations().forEach(a => { a.pause(); a.currentTime = t * 1000; });
+  const p = Math.min(1, Math.max(0, (t - 12.2) / 3)), v = 99.9 * (1 - Math.pow(1 - p, 3));
+  num.textContent = ar(p >= 1 ? '99.9' : v.toFixed(1)) + '٪';
+}
+window.setTime = setTime; window.DURATION = D;
+window.ready = Promise.all([document.fonts.ready, ...$$('img').map(i => i.decode().catch(() => {}))]);
+const frame = $('#frame');
+function fit() { const s = Math.min(innerWidth / 1080, innerHeight / 1920); frame.style.transform = `scale(${s})`; }
+if (!/render/.test(location.search)) {
+  fit(); addEventListener('resize', fit);
+  window.ready.then(() => { const t0 = performance.now(); (function loop() { setTime(((performance.now() - t0) / 1000) % D); requestAnimationFrame(loop); })(); });
+} else setTime(0);
+</script>
+</body>
+</html>
