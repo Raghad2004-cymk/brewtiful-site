@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>انفخ على قهوتك | Brewtiful</title>
+<meta name="description" content="قهوتك حارّة… انفخ عليها وشوف وش مخبّى تحت البخار. تجربة تفاعلية من Brewtiful.">
+<meta property="og:title" content="انفخ على قهوتك ☕🌬️">
+<meta property="og:description" content="قهوتك حارّة… انفخ عليها وشوف وش مخبّى تحت البخار.">
+<meta property="og:image" content="media/blow/cup.jpg">
+<meta name="theme-color" content="#fefefe">
+<style>
+@font-face{font-family:Cairo;font-weight:500;src:url(fonts/Cairo-500.ttf) format('truetype')}
+@font-face{font-family:Cairo;font-weight:700;src:url(fonts/Cairo-700.ttf) format('truetype')}
+@font-face{font-family:Cairo;font-weight:900;src:url(fonts/Cairo-900.ttf) format('truetype')}
+:root{--g800:#0b4d32;--g600:#16794a;--g400:#3fae6e;--g200:#a8dfbb;--g100:#e3f5e9;--bg:#fefefe}
+*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{font-family:Cairo,system-ui,sans-serif;color:var(--g800);background:var(--bg);overflow:hidden;
+  display:flex;flex-direction:column;align-items:center;user-select:none;-webkit-user-select:none}
+.brand{margin-top:max(18px,env(safe-area-inset-top));padding:6px 22px;border:2px solid var(--g200);border-radius:999px;font-weight:700;font-size:15px;background:#fff}
+.brand b{font-weight:900;color:var(--g400)}
+.head{text-align:center;padding:14px 16px 0;min-height:118px}
+h1{font-size:clamp(28px,8vw,40px);font-weight:900;line-height:1.25}
+.sub{font-size:clamp(16px,4.4vw,20px);font-weight:700;color:var(--g400);margin-top:4px}
+.stage{position:relative;width:min(88vw,400px);aspect-ratio:640/740;margin-top:-6px;flex:none}
+.stage img{position:absolute;mix-blend-mode:multiply;pointer-events:none}
+#cup{inset:0;width:100%;height:100%}
+#steam{left:28.125%;top:4.054%;width:37.5%;height:33.78%;transform-origin:50% 100%;will-change:transform,opacity,filter}
+.puff{position:absolute;border-radius:50%;background:radial-gradient(#fff,rgba(255,255,255,0));pointer-events:none}
+.meter{width:min(80vw,360px);margin-top:4px}
+.bar{height:14px;border-radius:999px;background:var(--g100);overflow:hidden;border:2px solid var(--g200)}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#e8743b,#f2b33d,var(--g400));border-radius:999px;transition:width .1s linear}
+.temp{display:flex;justify-content:space-between;font-weight:900;font-size:15px;margin-top:4px;color:var(--g600)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:999px;background:var(--g600);color:#fff;
+  font:900 20px Cairo,sans-serif;padding:14px 38px;box-shadow:0 12px 26px rgba(22,121,74,.3);cursor:pointer}
+.btn.ghost{background:#fff;color:var(--g600);border:2px solid var(--g200);box-shadow:none;font-size:16px;padding:10px 22px}
+.foot{margin-top:auto;padding:12px 16px max(18px,env(safe-area-inset-bottom));text-align:center;width:100%}
+.note{font-size:13px;font-weight:500;color:#7a9a88;margin-top:10px}
+.mic{width:64px;height:64px;border-radius:50%;margin:0 auto;display:grid;place-items:center;background:var(--g100);border:3px solid var(--g200);position:relative;font-size:28px}
+.mic::after{content:"";position:absolute;inset:-3px;border-radius:50%;border:4px solid var(--g400);transform:scale(var(--lv,1));opacity:.6;transition:transform .08s}
+.hidden{display:none!important}
+/* reveal card */
+#reveal{position:fixed;inset:auto 0 0 0;background:#fff;border-radius:28px 28px 0 0;box-shadow:0 -18px 50px rgba(11,77,50,.18);
+  padding:22px 20px max(22px,env(safe-area-inset-bottom));text-align:center;transform:translateY(110%);transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+#reveal.on{transform:none}
+#reveal h2{font-size:28px;font-weight:900}
+#reveal .time{font-size:16px;font-weight:700;color:var(--g400)}
+.code{margin:14px auto 6px;max-width:330px;display:flex;align-items:center;justify-content:space-between;gap:10px;border:3px dashed var(--g400);border-radius:18px;padding:10px 12px 10px 16px;background:var(--g100)}
+.code strong{font-size:28px;font-weight:900;letter-spacing:.06em;direction:ltr}
+.code button{border:0;border-radius:12px;background:var(--g600);color:#fff;font:900 15px Cairo;padding:8px 14px}
+.deal{font-weight:700;font-size:16px}
+.row{display:flex;gap:10px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+canvas#fx{position:fixed;inset:0;pointer-events:none;width:100%;height:100%}
+.toast{position:fixed;top:20px;left:50%;transform:translate(-50%,-80px);background:var(--g800);color:#fff;font-weight:700;padding:8px 18px;border-radius:999px;transition:transform .4s}
+.toast.on{transform:translate(-50%,0)}
+</style>
+</head>
+<body>
+  <div class="brand"><b dir="ltr">Brewtiful</b> · where flavor stays</div>
+
+  <div class="head">
+    <h1 id="title">قهوتك حارّة 🔥</h1>
+    <p class="sub" id="sub">انفخ عليها… وشوف وش مخبّى تحت البخار</p>
+  </div>
+
+  <div class="stage" id="stage">
+    <img id="cup" src="media/blow/cup.jpg" alt="كوب Brewtiful">
+    <img id="steam" src="media/blow/steam.png" alt="">
+  </div>
+
+  <div class="meter hidden" id="meter">
+    <div class="bar"><i id="fill"></i></div>
+    <div class="temp"><span id="deg">٨٥°</span><span>☕ جاهزة ٦٠°</span></div>
+  </div>
+
+  <div class="foot" id="foot">
+    <div id="startBox">
+      <button class="btn" id="start">🎤 ابدأ</button>
+      <p class="note">نستخدم المايك بس عشان نسمع النفخ. ما نسجّل ولا نرسل أي صوت.</p>
+    </div>
+    <div id="playBox" class="hidden">
+      <div class="mic" id="mic">🌬️</div>
+      <p class="note" id="hint">قرّب الجوال من فمك وانفخ بقوة</p>
+      <button class="btn ghost" id="hold" style="margin-top:8px">ما اشتغل المايك؟ اضغط مطوّل هنا</button>
+    </div>
+  </div>
+
+  <canvas id="fx"></canvas>
+
+  <div id="reveal">
+    <h2>بردت… وطلعت لك هدية 🎁</h2>
+    <p class="time" id="time"></p>
+    <div class="code"><strong id="code"></strong><button id="copy">نسخ</button></div>
+    <p class="deal" id="deal"></p>
+    <div class="row">
+      <a class="btn" id="shop" href="#">اطلب الحين</a>
+      <button class="btn ghost" id="share">تحدّى ربعك</button>
+      <button class="btn ghost" id="again">عيدها</button>
+    </div>
+  </div>
+  <div class="toast" id="toast"></div>
+
+<script>
+/* ===== الإعدادات (عدّلها قبل النشر) ===== */
+const CONFIG = {
+  code: 'BLOW15',                                   // كود خصم لازم ينشأ في Shopify قبل النشر
+  deal: 'خصم ١٥٪ على أي نكهة ديكاف',
+  store: 'https://brewtiful.club',
+  utm: 'utm_source=blow&utm_medium=web&utm_campaign=blow_coffee',
+};
+const NEED = 1;            // كمية النفخ المطلوبة (تقريباً ٢٫٥ ثانية نفخ متواصل)
+const RATE = 0.42;         // سرعة التبريد عند النفخ القوي
+const DECAY = 0.04;        // البخار يرجع شوي إذا وقفت
+
+const $ = id => document.getElementById(id);
+const ar = n => String(n).replace(/\d/g, d => '٠١٢٣٤٥٦٧٨٩'[d]).replace('.', '٫');
+let progress = 0, level = 0, blowing = false, holding = false, t0 = 0, done = false, analyser, data, noise = 0.02, calib = [];
+
+$('code').textContent = CONFIG.code;
+$('deal').textContent = CONFIG.deal;
+$('shop').href = `${CONFIG.store}/discount/${encodeURIComponent(CONFIG.code)}?redirect=${encodeURIComponent('/collections/all?' + CONFIG.utm)}`;
+
+/* ===== البخار ===== */
+const steam = $('steam'), stage = $('stage');
+let wob = 0;
+function drawSteam(dt) {
+  wob += dt * (1.6 + level * 14);
+  const p = Math.min(1, progress / NEED);
+  const bend = (level * 40 + p * 10) * (Math.sin(wob * .7) > -0.6 ? 1 : .6);
+  const sway = Math.sin(wob) * (3 + level * 10);
+  steam.style.transform = `translateY(${-p * 18}px) skewX(${-bend + sway * .3}deg) rotate(${sway * .4 - bend * .35}deg) scaleY(${1 - p * .35}) scaleX(${1 + level * .25})`;
+  steam.style.opacity = Math.max(0, 1 - p * 1.05);
+  steam.style.filter = `blur(${p * 6 + level * 3}px)`;
+  if (level > .25 && Math.random() < level * .9) puff(p);
+}
+function puff(p) {
+  const r = stage.getBoundingClientRect(), d = document.createElement('i'), s = 20 + Math.random() * 40;
+  d.className = 'puff'; d.style.cssText = `width:${s}px;height:${s}px;left:${30 + Math.random() * 40}%;top:${10 + Math.random() * 20}%`;
+  stage.appendChild(d);
+  d.animate([{ transform: 'translate(0,0) scale(.6)', opacity: .9 - p * .5 }, { transform: `translate(${(Math.random() - .5) * 160}px,${-80 - Math.random() * 100}px) scale(1.8)`, opacity: 0 }],
+    { duration: 900 + Math.random() * 500, easing: 'ease-out' }).onfinish = () => d.remove();
+}
+
+/* ===== المايك: نقيس شدة الصوت (النفخ = ضوضاء قوية متواصلة) ===== */
+async function startMic() {
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: false, noiseSuppression: false, autoGainControl: false } });
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const src = ctx.createMediaStreamSource(stream);
+    analyser = ctx.createAnalyser(); analyser.fftSize = 1024; analyser.smoothingTimeConstant = .3;
+    src.connect(analyser); data = new Float32Array(analyser.fftSize);
+    return true;
+  } catch (e) { return false; }
+}
+function readMic() {
+  if (!analyser) return 0;
+  analyser.getFloatTimeDomainData(data);
+  let sum = 0; for (let i = 0; i < data.length; i++) sum += data[i] * data[i];
+  const rms = Math.sqrt(sum / data.length);
+  if (calib.length < 30) { calib.push(rms); noise = Math.max(.012, calib.reduce((a, b) => a + b, 0) / calib.length); return 0; }
+  const thr = Math.max(noise * 3, .045);
+  return Math.min(1, Math.max(0, (rms - thr) / (thr * 4)));
+}
+
+/* ===== الحلقة ===== */
+let last = performance.now();
+function loop(now) {
+  const dt = Math.min(.05, (now - last) / 1000); last = now;
+  const raw = holding ? .75 + Math.random() * .2 : readMic();
+  level += (raw - level) * (raw > level ? .5 : .15);
+  blowing = level > .12;
+  if (!done && t0) {
+    progress = Math.max(0, progress + (blowing ? RATE * (.4 + level) * dt : -DECAY * dt));
+    const p = Math.min(1, progress / NEED);
+    $('fill').style.width = (p * 100) + '%';
+    $('deg').textContent = ar(Math.round(85 - p * 25)) + '°';
+    $('mic').style.setProperty('--lv', 1 + level * .9);
+    $('hint').textContent = blowing ? 'كمّل… كمّل! 🌬️' : progress > .05 ? 'لا توقف، البخار راجع 😅' : 'قرّب الجوال من فمك وانفخ بقوة';
+    if (p >= 1) finish();
+  }
+  drawSteam(dt);
+  requestAnimationFrame(loop);
+}
+requestAnimationFrame(loop);
+
+$('start').onclick = async () => {
+  const ok = await startMic();
+  $('startBox').classList.add('hidden'); $('playBox').classList.remove('hidden'); $('meter').classList.remove('hidden');
+  $('title').textContent = 'انفخ! 🌬️'; $('sub').textContent = 'برّدها لين ٦٠° وتطلع لك الهدية';
+  if (!ok) $('hint').textContent = 'المايك مو متاح، اضغط مطوّل على الزر تحت 👇';
+  t0 = performance.now();
+};
+const hold = $('hold');
+['pointerdown'].forEach(e => hold.addEventListener(e, ev => { ev.preventDefault(); holding = true; }));
+['pointerup', 'pointerleave', 'pointercancel'].forEach(e => hold.addEventListener(e, () => holding = false));
+
+/* ===== النتيجة ===== */
+let secs = 0;
+function finish() {
+  done = true; holding = false; level = 0;
+  secs = (performance.now() - t0) / 1000;
+  $('title').textContent = 'بردت ☕'; $('sub').textContent = 'قهوتك جاهزة';
+  $('playBox').classList.add('hidden');
+  $('time').textContent = `برّدتها في ${ar(secs.toFixed(1))} ثانية`;
+  setTimeout(() => $('reveal').classList.add('on'), 350);
+  confetti();
+  navigator.vibrate && navigator.vibrate([60, 40, 120]);
+}
+$('copy').onclick = async () => { try { await navigator.clipboard.writeText(CONFIG.code); } catch (e) {} toast('انسخ الكود ✓'); };
+$('share').onclick = async () => {
+  const text = `برّدت قهوة Brewtiful في ${ar(secs.toFixed(1))} ثانية 🌬️☕ تقدر تغلبني؟`;
+  const url = location.href.split('?')[0];
+  if (navigator.share) { try { await navigator.share({ title: 'انفخ على قهوتك', text, url }); } catch (e) {} }
+  else { try { await navigator.clipboard.writeText(text + ' ' + url); } catch (e) {} toast('انسخ الرابط، أرسله لربعك ✓'); }
+};
+$('again').onclick = () => {
+  $('reveal').classList.remove('on'); done = false; progress = 0; t0 = performance.now();
+  $('playBox').classList.remove('hidden'); $('title').textContent = 'انفخ! 🌬️'; $('sub').textContent = 'برّدها لين ٦٠° وتطلع لك الهدية';
+};
+function toast(m) { const t = $('toast'); t.textContent = m; t.classList.add('on'); setTimeout(() => t.classList.remove('on'), 1600); }
+
+/* حبوب قهوة تتطاير عند الفوز */
+function confetti() {
+  const c = $('fx'), x = c.getContext('2d'), W = c.width = innerWidth * devicePixelRatio, H = c.height = innerHeight * devicePixelRatio;
+  const ps = Array.from({ length: 70 }, () => ({ x: W / 2, y: H * .45, vx: (Math.random() - .5) * 26 * devicePixelRatio, vy: (-10 - Math.random() * 18) * devicePixelRatio,
+    r: Math.random() * 6, vr: (Math.random() - .5) * .3, s: (6 + Math.random() * 6) * devicePixelRatio, c: ['#16794a', '#3fae6e', '#a8dfbb', '#6b4226'][Math.floor(Math.random() * 4)] }));
+  let n = 0;
+  (function step() {
+    x.clearRect(0, 0, W, H);
+    ps.forEach(p => { p.vy += .6 * devicePixelRatio; p.x += p.vx; p.y += p.vy; p.r += p.vr;
+      x.save(); x.translate(p.x, p.y); x.rotate(p.r); x.fillStyle = p.c; x.beginPath(); x.ellipse(0, 0, p.s * .7, p.s, 0, 0, 7); x.fill();
+      x.strokeStyle = 'rgba(255,255,255,.8)'; x.lineWidth = p.s * .18; x.beginPath(); x.moveTo(0, -p.s * .8); x.quadraticCurveTo(-p.s * .3, 0, 0, p.s * .8); x.stroke(); x.restore(); });
+    if (++n < 140) requestAnimationFrame(step); else x.clearRect(0, 0, W, H);
+  })();
+}
+</script>
+</body>
+</html>
